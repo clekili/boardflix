@@ -1,17 +1,17 @@
 ## Component Hierarchy
 
-** NavbarContainer **
+#### NavbarContainer
   * Logo
   * Search
   * Login/Logout button
 
-** SplashPage **
+#### SplashPage
   * BackgroundVideo/Gif
 
-** AuthFormContainer **
+#### AuthFormContainer
   * AuthForm
 
-** VideoListContainer **
+#### VideoListContainer
   * VideoListPicture
   * VideoListItem
     * VideoDetailsContainer
@@ -20,12 +20,12 @@
         * CommentsDisplay
   * VideoListScrollButton
 
-** VideoPlaterContainer **
+#### VideoPlaterContainer
   * VideoPlayer
   * BackToBrowsingButton
 
-** UserContainer **
+#### UserContainer
   * User
 
-** FooterContainer **
+#### FooterContainer
   * FooterLinkItem
