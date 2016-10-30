@@ -15,7 +15,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null, indexed, unique
 youtube_url     | string    | not null
-details         | text      | not null
+description     | text      | not null
 view_count      | integer   | not null, default: 0
 rating          | integer   | not null, default: 5
 
