@@ -20,7 +20,7 @@
         * CommentsDisplay
   * VideoListScrollButton
 
-#### VideoPlaterContainer
+#### VideoPlayerContainer
   * VideoPlayer
   * BackToBrowsingButton
 
@@ -29,3 +29,6 @@
 
 #### FooterContainer
   * FooterLinkItem
+
+#### TagsContainer (bonus)
+  * Tag
