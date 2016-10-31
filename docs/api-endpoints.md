@@ -23,6 +23,10 @@
     * accepts query param to list videos by category
     * accepts query param to search by name
   * [ ] `GET /api/videos/:id` - gets a particular video
+  * Admin only :
+    * [ ] `PATCH /api/videos/:id` - updates video
+    * [ ] `DELETE /api/videos/:id` - deletes video
+    * [ ] `POST /api/videos/:id` - creates video
 
 ### Comments
   * [ ] `GET /api/videos/:video_id/comments` - lists all comments of a video
