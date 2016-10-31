@@ -52,6 +52,6 @@ Boardflix is a web application inspired by Netflix and Vevo built using Ruby on 
 **Objective:** Add infinite scroll to videos indexed
 
 ### Bonus Features
-[ ] tags
-[ ] user feed
-[ ] user watchlist
+* [ ] tags
+* [ ] user feed
+* [ ] user watchlist
