@@ -4,7 +4,7 @@
 [Trello link][trello]
 
 [heroku]: https://boardflix.herokuapp.com/
-[trello]: https://trello.com
+[trello]: https://trello.com/b/qV47bwZp
 
 ## Minimum Viable Product
 
@@ -48,7 +48,10 @@ Boardflix is a web application inspired by Netflix and Vevo built using Ruby on 
 ### Phase 5: Search (1 day)
 **Objective:** Be able to search videos by name
 
-### Phase 6: Pagination / infinite scroll for videos(1 day)
+### Phase 6: User Profile (1 day)
+**Objective:** Users can view and edit their profile
+
+### Phase 7: Pagination / infinite scroll for videos(1 day)
 **Objective:** Add infinite scroll to videos indexed
 
 ### Bonus Features
