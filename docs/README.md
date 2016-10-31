@@ -21,7 +21,7 @@ Boardflix is a web application inspired by Netflix and Vevo built using Ruby on 
 ## Design Docs
 * [View Wireframes][wireframes]
 * [React Components][components]
-* [API endponts][api-endpoints]
+* [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Sample State][sample-state]
 
@@ -32,3 +32,26 @@ Boardflix is a web application inspired by Netflix and Vevo built using Ruby on 
 [schema]: schema.md
 
 ## Implementation Timeline
+
+### Phase 1: Backend setup and Front End User Authentication (2 days)
+**Objective:** Functioning rails project with front-end Authentication
+
+### Phase 2: Videos Model, API, and components (2 days)
+**Objective:** Videos can be created, updated, deleted and viewed.
+
+### Phase 3: Categories (1 day)
+**Objective:** Videos are grouped by categories
+
+### Phase 4: Comments (2 days)
+**Objective:** Comments can be create, updated, deleted and viewed.
+
+### Phase 5: Search (1 day)
+**Objective:** Be able to search videos by name
+
+### Phase 6: Pagination / infinite scroll for videos(1 day)
+**Objective:** Add infinite scroll to videos indexed
+
+### Bonus Features
+[ ] tags
+[ ] user feed
+[ ] user watchlist
