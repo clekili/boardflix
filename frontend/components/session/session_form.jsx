@@ -4,8 +4,17 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+
+const dialogStyle = {
+  width: '310px',
+  height: '250px'
+};
+
+const buttonStyle = {
+  width: '100%'
+};
 
 
 class SessionForm extends React.Component {
@@ -71,10 +80,11 @@ class SessionForm extends React.Component {
       linkDesc = "Already have an account?";
       linkText = 'Log In';
       demoLoginButton = (
-        <RaisedButton label='Guest Login'
-                      secondary={true}
-                      onClick={this.handleGuestLogin}
-                      />
+        <FlatButton label='Guest Login'
+                    secondary={true}
+                    onClick={this.handleGuestLogin}
+                    style={buttonStyle}
+                    />
       );
     }
 
@@ -84,6 +94,7 @@ class SessionForm extends React.Component {
         <Dialog
           open={true}
           onRequestClose={this.handleClose}
+          contentStyle={dialogStyle}
         >
         <ul className='login_errors'>
           {this.props.errors.map( (error, idx) => (
@@ -93,28 +104,27 @@ class SessionForm extends React.Component {
 
         <form onSubmit={this.handleSubmit}>
           <TextField
-              hintText="USERNAME"
+              hintText="Username"
               floatingLabelText="Username"
               value={this.state.user.username}
               onChange={this.update('username')}
           />
-          <br/>
           <TextField
-              hintText="PASSWORD"
+              hintText="Password"
               floatingLabelText="Password"
               type="password"
               value={this.state.user.password}
               onChange={this.update('password')}
           />
           <br/>
-          <RaisedButton label={text}
-                        primary={true}
-                        type="submit"
-                        />
+          <FlatButton label={text}
+                      type="submit"
+                      style={buttonStyle}
+                      />
           <br/>
           {demoLoginButton}
         </form>
-        <label>{linkDesc}</label>
+        <label>{linkDesc} </label>
         <Link to={link}>{linkText}</Link>
         </Dialog>
       </MuiThemeProvider>
