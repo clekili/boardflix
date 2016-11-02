@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101171143) do
+ActiveRecord::Schema.define(version: 20161102165043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "categorizations", force: :cascade do |t|
+    t.string   "video_id",    null: false
+    t.string   "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", unique: true, using: :btree
+  add_index "categorizations", ["video_id"], name: "index_categorizations_on_video_id", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",                null: false
+    t.integer  "video_id",               null: false
+    t.integer  "rating",     default: 0, null: false
+    t.text     "body",                   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["video_id"], name: "index_comments_on_video_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
@@ -23,5 +53,17 @@ ActiveRecord::Schema.define(version: 20161101171143) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "name",                    null: false
+    t.string   "youtube_url",             null: false
+    t.text     "description"
+    t.integer  "view_count",  default: 0
+    t.integer  "rating",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "videos", ["name"], name: "index_videos_on_name", unique: true, using: :btree
 
 end
