@@ -1,26 +1,11 @@
 
-export const fetchVideos = (success, error) => {
+export const fetchVideos = (category,
+                            search,
+                            success,
+                            error) => {
   $.ajax({
     type: 'get',
-    url: 'videos',
-    success,
-    error
-  });
-};
-
-export const fetchVideosWithCat = (cat, success, error) => {
-  $.ajax({
-    type: 'get',
-    url: `videos/category=${cat}`,
-    success,
-    error
-  });
-};
-
-export const fetchVideosWithSearchStr = (str, success, error) => {
-  $.ajax({
-    type: 'get',
-    url: `videos/search=${str}`,
+    url: `videos/category=${category}&search=${search}`,
     success,
     error
   });
