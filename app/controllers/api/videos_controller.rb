@@ -1,9 +1,12 @@
 class Api::VideosController < ApplicationController
   def index
     category_name = params[:category];
+    search_string = params[:search];
     if(category_name)
       category = Category.find_by(name: category_name)
-      @videos = category.videos;
+      @videos = category.videos
+    elsif(search_string)
+      @videos = Video.where('name LIKE ?', "%#{search_string}%").all
     else
       @videos = Video.all
     end
