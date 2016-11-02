@@ -1,10 +1,16 @@
 class Api::VideosController < ApplicationController
   def index
-    @videos = Video.all
+    category_name = params[:category];
+    if(category_name)
+      category = Category.find_by(name: category_name)
+      @videos = category.videos;
+    else
+      @videos = Video.all
+    end
   end
 
   def show
-    @video = params[:id]
+    @video = Video.find_by(id: params[:id])
     render :show
   end
 
