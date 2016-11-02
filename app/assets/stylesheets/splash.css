@@ -1,0 +1,76 @@
+.splashScreen {
+  height: 100%;
+}
+
+.splashTitle {
+  background-color: black;
+  color: white;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.splashTitle > h1 {
+  text-align: center;
+  margin-top: 25%;
+  font-size: 50px;
+}
+
+.splashTitle > h2 {
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 25%;
+}
+
+.intro > img {
+  width: 100%;
+  height: 50%;
+  top: 0;
+}
+
+.intro {
+  position: relative;
+}
+
+.mainContent{
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 100%;
+}
+
+.mainContent > h2 {
+  color: rgb(150,0,20);
+  padding-top: 10%;
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+.mainContent > p {
+  margin: 5px;
+}
+
+.newAccount{
+  margin: 40px;
+}
+
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(34,34,34);
+  color: #b3b3b3;
+}
+
+.footer > ul > li {
+  float: left;
+  margin: 20px 20px 20px 0px;
+}
+
+.footer > p {
+  margin: 20px;
+}
