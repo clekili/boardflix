@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20161102165043) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "categorizations", force: :cascade do |t|
-    t.string   "video_id",    null: false
-    t.string   "category_id", null: false
+    t.integer  "video_id",    null: false
+    t.integer  "category_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", unique: true, using: :btree
-  add_index "categorizations", ["video_id"], name: "index_categorizations_on_video_id", unique: true, using: :btree
+  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
+  add_index "categorizations", ["video_id"], name: "index_categorizations_on_video_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",                null: false
