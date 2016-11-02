@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 const LogoButton = () => (
   <div className='logo'>
     <Link to="/">
-      <img src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478040514/logo_new_qili1u.png"/>
+      <img src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478057684/logo_c9qkgw.png"/>
     </Link>
   </div>
 );

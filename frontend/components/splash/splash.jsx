@@ -1,11 +1,12 @@
 import React from 'react';
-import NavBar from '../navbar/navbar';
+import Intro from './intro';
+import MainContent from './main_content';
 
-const App = ({ children }) => (
-    <div>
-      <NavBar />
-      {children}
+const Splash = () => (
+    <div className='splashScreen'>
+      <Intro />
+      <MainContent />
     </div>
 );
 
-export default App;
+export default Splash;
