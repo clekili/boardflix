@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20161102165043) do
 
   create_table "videos", force: :cascade do |t|
     t.string   "name",                    null: false
-    t.string   "youtube_url",             null: false
+    t.string   "youtube_id",              null: false
     t.text     "description"
     t.integer  "view_count",  default: 0
     t.integer  "rating",      default: 0
