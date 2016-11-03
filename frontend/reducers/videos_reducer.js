@@ -6,6 +6,11 @@ import merge from 'lodash/merge';
 const VideosReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_VIDEOS:
+      if(action.category){
+        return merge({}, oldState, {[action.category]: action.videos});
+      } else if(action.search) {
+        return merge({}, oldState, { search: action.videos});
+      }
       return merge({}, action.videos);
     case RECEIVE_VIDEO:
       return merge({}, oldState, {[action.video.id]: action.video});

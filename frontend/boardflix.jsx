@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-// TESTING IMPORTS
-import * as action from './actions/session_actions';
-
+// FOR TESTING
+import { fetchVideos } from './actions/video_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -21,5 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TESTING
   window.store = store;
-  window.action = action;
+  window.fetchVideos = fetchVideos;
 });

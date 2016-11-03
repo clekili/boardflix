@@ -22,14 +22,14 @@ import { hashHistory } from 'react-router';
 const VideosMiddleware = ({getState, dispatch}) => next => action => {
   let error = e => console.log(e.responseJSON);
   let fetchVideoSuccess = video => dispatch(receiveVideo(video));
-  let fetchVideosSuccess = videos => dispatch(receiveVideos(videos));
+  let fetchVideosSuccess = (category, search) => videos => dispatch(receiveVideos(videos, category, search));
   let deleteVideoSuccess = video => dispatch(removeVideo(video));
 
   switch (action.type) {
     case FETCH_VIDEOS:
       fetchVideos(action.category,
                   action.search,
-                  fetchVideosSuccess,
+                  fetchVideosSuccess(action.category, action.search),
                   error);
       break;
     case FETCH_VIDEO:

@@ -5,7 +5,7 @@ export const fetchVideos = (category,
                             error) => {
   $.ajax({
     type: 'get',
-    url: `videos/category=${category}&search=${search}`,
+    url: `api/videos?category=${category}&search=${search}`,
     success,
     error
   });
@@ -14,7 +14,7 @@ export const fetchVideos = (category,
 export const fetchVideo = (id, success, error) =>{
   $.ajax({
     type: 'get',
-    url: `videos/${id}`,
+    url: `api/videos/${id}`,
     success,
     error
   });
@@ -23,7 +23,7 @@ export const fetchVideo = (id, success, error) =>{
 export const createVideo = (video, success, error) =>{
   $.ajax({
     type: 'post',
-    url: 'videos/',
+    url: 'api/videos/',
     success,
     error
   });
@@ -32,7 +32,7 @@ export const createVideo = (video, success, error) =>{
 export const updateVideo = (video, success, error) =>{
   $.ajax({
     type: 'patch',
-    url: `videos/${video.id}`,
+    url: `api/videos/${video.id}`,
     success,
     error
   });
@@ -41,7 +41,7 @@ export const updateVideo = (video, success, error) =>{
 export const deleteVideo = (id, success, error) =>{
   $.ajax({
     type: 'delete',
-    url: `videos/${id}`,
+    url: `api/videos/${id}`,
     success,
     error
   });

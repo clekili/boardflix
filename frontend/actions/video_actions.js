@@ -39,10 +39,13 @@ export const removeVideo = video => ({
   video
 });
 
-export const receiveVideos = videos => ({
+export const receiveVideos = (videos, category, search) => ({
   type: RECEIVE_VIDEOS,
-  videos
+  videos,
+  category,
+  search
 });
+
 
 export const receiveVideo = video => ({
   type: RECEIVE_VIDEO,
