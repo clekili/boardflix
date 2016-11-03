@@ -34,6 +34,11 @@ export const deleteVideo = id => ({
   id
 });
 
+export const removeVideo = video => ({
+  type: REMOVE_VIDEO,
+  video
+});
+
 export const receiveVideos = videos => ({
   type: RECEIVE_VIDEOS,
   videos
