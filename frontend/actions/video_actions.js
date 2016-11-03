@@ -7,10 +7,8 @@ export const CREATE_VIDEO = "CREATE_VIDEO";
 export const UPDATE_VIDEO = "UPDATE_VIDEO";
 export const DELETE_VIDEO = "DELETE_VIDEO";
 
-export const fetchVideos = (category="",
-                            search="") => ({
+export const fetchVideos = (search="") => ({
   type: FETCH_VIDEOS,
-  category,
   search
 });
 
@@ -39,10 +37,9 @@ export const removeVideo = video => ({
   video
 });
 
-export const receiveVideos = (videos, category, search) => ({
+export const receiveVideos = (videos, search) => ({
   type: RECEIVE_VIDEOS,
   videos,
-  category,
   search
 });
 

@@ -1,11 +1,10 @@
 
-export const fetchVideos = (category,
-                            search,
+export const fetchVideos = (search,
                             success,
                             error) => {
   $.ajax({
     type: 'get',
-    url: `api/videos?category=${category}&search=${search}`,
+    url: `api/videos?search=${search}`,
     success,
     error
   });
