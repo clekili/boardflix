@@ -18,6 +18,11 @@ html {
   font-family: 'Raleway', sans-serif;
 }
 
+body {
+  background-color: #141414;
+  color: #999;
+}
+
 .clearfix:after {
      visibility: hidden;
      display: block;

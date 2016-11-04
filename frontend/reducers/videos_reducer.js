@@ -11,7 +11,7 @@ const VideosReducer = (oldState = {}, action) => {
       }
       return merge({}, action.videos);
     case RECEIVE_VIDEO:
-      return merge({}, oldState, {[action.video.id]: action.video});
+      return merge({}, oldState, action.video);
     case REMOVE_VIDEO:
       let newState = merge({}, oldState);
       delete newState[action.video.id];

@@ -14,7 +14,7 @@ class SessionForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      dialogType: "login",
+      dialogType: props.dialogType || "login",
       errors: props.errors,
       display: true,
       user: {

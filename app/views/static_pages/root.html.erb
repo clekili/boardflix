@@ -2,8 +2,6 @@
   <% if current_user %>
     window.currentUser = <%=  render('api/users/user.json.jbuilder', user: current_user).html_safe%>
   <% end %>
-
-  window.categories = <%= (Category.all.map{ |c| c.name }).to_json.html_safe%>
 </script>
 
 <div id='root'>

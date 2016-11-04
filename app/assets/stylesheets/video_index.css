@@ -1,18 +1,30 @@
 .carouselContainer {
-  margin: 10px auto;
-  padding: 40px;
-  width: 80%;
-  color: #333;
-  background: red;
+  margin: 0 auto;
+  padding: 0 40px 0 0;
+  width: 90%;
 }
 
-.slick-slide {
-  margin: 0 10px;
-  background-color: green;
+.videoCarouselItem {
+  padding: 0 10px;
+}
+
+.slick-slide:hover{
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.videoHoverCover{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
 }
 
 .videoIndex {
-  margin: 100px 20px 30px 20px;
+  margin: 100px 0 50px 0;
 }
 
 .videoThumbnail {

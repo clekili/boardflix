@@ -5,6 +5,7 @@ import App from './app';
 import Splash from './splash/splash';
 import VideoIndexContainer from './videos/video_index_container';
 import SessionFormContainer from './navbar/session/session_form_container';
+import VideoPlayerContainer from './videos/video_player_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedOut = (nextState, replace) => {
@@ -23,8 +24,13 @@ const Root = ({ store }) => {
     <Provider store={store}>
         <Router history={hashHistory}>
           <Route path='/' component={App}>
-            <IndexRoute component={VideoIndexContainer} onEnter={_redirectIfLoggedOut}/>
+            <IndexRoute
+              component={VideoIndexContainer}
+              onEnter={_redirectIfLoggedOut}/>
             <Route path='welcome' component={Splash}/>
+            <Route
+              path=':category/videos/:id'
+              component={VideoPlayerContainer}/>
             <Route path="/login"
                    onEnter={_redirectIfLoggedIn}
                    component={SessionFormContainer} />
