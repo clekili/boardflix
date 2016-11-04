@@ -7,7 +7,6 @@ import VideoIndexContainer from './videos/video_index_container';
 const App = ({ children }) => (
     <div>
       <NavBar />
-      {window.currentUser ? <VideoIndexContainer/> : <Splash/>}
       {children}
       <Footer />
     </div>
