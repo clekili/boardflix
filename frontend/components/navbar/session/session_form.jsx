@@ -1,16 +1,9 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 
-const dialogStyle = {
-  width: '310px',
-  height: '250px'
-};
 
 const buttonStyle = {
   width: '100%'
@@ -21,22 +14,19 @@ class SessionForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      open: false,
+      dialogType: "login",
+      errors: props.errors,
+      display: true,
       user: {
         username: "",
         password: ""
       }
     };
 
+    this.changeFormType = this.changeFormType.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
-  }
-
-  handleSubmit(e){
-    e.preventDefault();
-    const user = this.state.user;
-    this.props.processForm({user});
   }
 
   update(field){
@@ -47,13 +37,12 @@ class SessionForm extends React.Component {
     };
   }
 
-  componentWillReceiveProps(newProps){
-    if(newProps.loggedIn)
-      hashHistory.push('/');
-  }
-
-  handleClose(){
-    hashHistory.push('/');
+  handleSubmit(e){
+    e.preventDefault();
+    if(this.state.dialogType === 'login')
+      this.props.login(this.state.user);
+    else
+      this.props.signup(this.state.user);
   }
 
   handleGuestLogin(e){
@@ -62,23 +51,26 @@ class SessionForm extends React.Component {
       username: 'guest',
       password: 'password'
     };
-    this.props.login({user});
+    this.props.login(user);
+  }
+
+  changeFormType(){
+    let type = this.state.dialogType;
+    this.state.dialogType = type === 'login' ? 'signup' : 'login';
+    this.setState(this.state);
   }
 
 
-
   render(){
-    let text, link, linkText, linkDesc, demoLoginButton;
-    if(this.props.formType === "login") {
+    let text, changeFormText, linkDesc, demoLoginButton;
+    if(this.state.dialogType === "login") {
       text = "Log in";
-      link = '/signup';
       linkDesc = "Don't have an account?";
-      linkText = 'Sign Up';
+      changeFormText = 'Sign Up';
     } else {
       text = "Sign Up";
-      link = '/login';
       linkDesc = "Already have an account?";
-      linkText = 'Log In';
+      changeFormText = 'Log In';
       demoLoginButton = (
         <FlatButton label='Guest Login'
                     secondary={true}
@@ -89,45 +81,43 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div className='session_form'>
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <Dialog
-          open={true}
-          onRequestClose={this.handleClose}
-          contentStyle={dialogStyle}
-        >
-        <ul className='login_errors'>
-          {this.props.errors.map( (error, idx) => (
-            <li key={idx} className='login_error_item'>{error}</li>
-          ))}
-        </ul>
+      <div className='sessionForm'>
+        <div>
+          <ul className='login_errors'>
+            {this.props.errors.map( (error, idx) => (
+              <li key={idx} className='login_error_item'>{error}</li>
+            ))}
+          </ul>
 
-        <form onSubmit={this.handleSubmit}>
-          <TextField
-              hintText="Username"
-              floatingLabelText="Username"
-              value={this.state.user.username}
-              onChange={this.update('username')}
-          />
-          <TextField
-              hintText="Password"
-              floatingLabelText="Password"
-              type="password"
-              value={this.state.user.password}
-              onChange={this.update('password')}
-          />
-          <br/>
-          <FlatButton label={text}
-                      type="submit"
-                      style={buttonStyle}
-                      />
-          <br/>
-          {demoLoginButton}
-        </form>
-        <label>{linkDesc} </label>
-        <Link to={link}>{linkText}</Link>
-        </Dialog>
-      </MuiThemeProvider>
+          <form onSubmit={this.handleSubmit}>
+            <TextField
+                hintText="Username"
+                floatingLabelText="Username"
+                value={this.state.user.username}
+                onChange={this.update('username')}
+            />
+            <TextField
+                hintText="Password"
+                floatingLabelText="Password"
+                type="password"
+                value={this.state.user.password}
+                onChange={this.update('password')}
+            />
+            <br/>
+            <FlatButton label={text}
+                        type="submit"
+                        style={buttonStyle}
+                        />
+            <br/>
+            {demoLoginButton}
+          </form>
+          <label>{linkDesc} </label>
+          <FlatButton
+            primary={true}
+            onClick={this.changeFormType}
+            label={changeFormText}
+            />
+          </div>
       </div>
     );
   }

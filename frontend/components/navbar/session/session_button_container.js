@@ -3,12 +3,10 @@ import { login, logout, signup } from '../../../actions/session_actions';
 import SessionButton from './session_button';
 
 const mapStateToProps = state => ({
-  session: state.session
+  loggedIn: state.session.currentUser ? true : false,
 });
 
 const mapDispatchToProps = dispatch => ({
-  signup: user => dispatch(signup(user)),
-  login:  user => dispatch(login()),
   logout: () => dispatch(logout())
 });
 
