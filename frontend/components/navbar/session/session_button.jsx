@@ -6,7 +6,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SessionFormContainer from './session_form_container';
 import Dialog from 'material-ui/Dialog';
-
+import CreateVideoFormContainer from '../../videos/create_video_form_container';
 
 const dialogStyle = {
   width: '350px',
@@ -17,16 +17,35 @@ class SessionButton extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      show: false
+      show: false,
+      create: false
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.openLoginDialog = this.openLoginDialog.bind(this);
+    this.openCreateDialog = this.openCreateDialog.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handleClick(e){
+  openLoginDialog(e){
     e.preventDefault();
-    this.state.show = true;
-    this.setState(this.state);
+    this.setState({show: true});
+  }
+
+  openCreateDialog(e){
+    e.preventDefault();
+    this.setState({create: true});
+  }
+
+  createVideoButton(){
+    if(this.props.isAdmin){
+      return (
+        <div className="sessionBtn">
+          <RaisedButton
+            label="Create Video"
+            onClick={this.openCreateDialog}
+            />
+        </div>
+      );
+    }
   }
 
   button(){
@@ -42,7 +61,7 @@ class SessionButton extends React.Component {
     } else {
       return (
         <div className="sessionBtn">
-          <button onClick={this.handleClick}>
+          <button onClick={this.openLoginDialog}>
             <img
               src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478037453/dude_omkwgb.png"
             />
@@ -60,6 +79,7 @@ class SessionButton extends React.Component {
 
   handleClose(){
     this.state.show = false;
+    this.state.create = false;
     this.setState(this.state);
   }
 
@@ -68,6 +88,7 @@ class SessionButton extends React.Component {
       <div className="session">
         <MuiThemeProvider   muiTheme={getMuiTheme(darkBaseTheme)}>
           <div>
+            {this.createVideoButton()}
             {this.button()}
             <Dialog
               open={this.state.show}
@@ -75,6 +96,11 @@ class SessionButton extends React.Component {
               contentStyle={dialogStyle}
             >
               <SessionFormContainer/>
+            </Dialog>
+            <Dialog
+              open={this.state.create}
+              onRequestClose={this.handleClose}>
+              <CreateVideoFormContainer/>
             </Dialog>
           </div>
         </MuiThemeProvider>

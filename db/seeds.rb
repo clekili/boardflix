@@ -7,6 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(username: 'guest', password: 'password')
+User.create(username: 'admin',
+            password: 'password',
+            is_admin: true)
 
 Category.create([
   { name: 'Snowboard' },
