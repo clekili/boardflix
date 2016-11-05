@@ -36,7 +36,6 @@ class VideoCarouselItem  extends React.Component {
     );
   }
 
-
   getVideoThumbnail() {
     let video = this.state.video;
     return `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;

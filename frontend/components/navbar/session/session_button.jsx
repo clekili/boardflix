@@ -6,7 +6,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SessionFormContainer from './session_form_container';
 import Dialog from 'material-ui/Dialog';
-import CreateVideoFormContainer from '../../videos/create_video_form_container';
+import VideoFormContainer from '../../videos/video_form_container';
+import Popover from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 
 const dialogStyle = {
   width: '350px',
@@ -18,11 +21,15 @@ class SessionButton extends React.Component {
     super(props);
     this.state = {
       show: false,
-      create: false
+      create: false,
+      userMenu: false,
+      anchorEl: undefined
     };
     this.openLoginDialog = this.openLoginDialog.bind(this);
     this.openCreateDialog = this.openCreateDialog.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.openUserMenu = this.openUserMenu.bind(this);
+    this.closeUserMenu = this.closeUserMenu.bind(this);
   }
 
   openLoginDialog(e){
@@ -41,7 +48,7 @@ class SessionButton extends React.Component {
         <div className="sessionBtn">
           <RaisedButton
             label="Create Video"
-            onClick={this.openCreateDialog}
+            onTouchTap={this.openCreateDialog}
             />
         </div>
       );
@@ -52,24 +59,44 @@ class SessionButton extends React.Component {
     if(this.props.loggedIn){
       return (
         <div className="sessionBtn">
-          <RaisedButton
-            label="logout"
-            onClick={this.props.logout}
+          <button onClick={this.openUserMenu}>
+            <img
+              src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478037453/dude_omkwgb.png"
             />
+          </button>
+          <Popover
+            open={this.state.userMenu}
+            anchorEl={this.state.anchorEl}
+            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+            onRequestClose={this.closeUserMenu}
+          >
+            <Menu>
+              <MenuItem primaryText="Profile" />
+              <MenuItem primaryText="Sign out" onTouchTap={this.props.logout} />
+            </Menu>
+          </Popover>
         </div>
       );
     } else {
       return (
         <div className="sessionBtn">
-          <button onClick={this.openLoginDialog}>
-            <img
-              src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478037453/dude_omkwgb.png"
-            />
-          </button>
-          { this.state.modal }
+          <RaisedButton
+            onClick={this.openLoginDialog}
+            label="Sign Up"
+          />
         </div>
       );
     }
+  }
+
+  closeUserMenu(e){
+    this.setState({userMenu: false});
+  }
+
+  openUserMenu(e){
+    e.preventDefault();
+    this.setState({anchorEl: e.currentTarget, userMenu: true});
   }
 
   componentWillReceiveProps(newProps){
@@ -87,11 +114,12 @@ class SessionButton extends React.Component {
     return (
       <div className="session">
         <MuiThemeProvider   muiTheme={getMuiTheme(darkBaseTheme)}>
-          <div>
+          <div className="session">
             {this.createVideoButton()}
             {this.button()}
             <Dialog
               open={this.state.show}
+              modal={false}
               onRequestClose={this.handleClose}
               contentStyle={dialogStyle}
             >
@@ -99,8 +127,9 @@ class SessionButton extends React.Component {
             </Dialog>
             <Dialog
               open={this.state.create}
+              modal={false}
               onRequestClose={this.handleClose}>
-              <CreateVideoFormContainer/>
+              <VideoFormContainer dialogType="create"/>
             </Dialog>
           </div>
         </MuiThemeProvider>

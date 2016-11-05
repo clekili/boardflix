@@ -23,6 +23,7 @@ export const createVideo = (video, success, error) =>{
   $.ajax({
     type: 'post',
     url: 'api/videos/',
+    data: {video},
     success,
     error
   });
@@ -32,6 +33,7 @@ export const updateVideo = (video, success, error) =>{
   $.ajax({
     type: 'patch',
     url: `api/videos/${video.id}`,
+    data: {video},
     success,
     error
   });

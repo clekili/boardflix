@@ -2,6 +2,7 @@ import {
   receiveVideo,
   receiveVideos,
   removeVideo,
+  receiveErrors,
   FETCH_VIDEOS,
   FETCH_VIDEO,
   CREATE_VIDEO,
@@ -20,7 +21,7 @@ import {
 import { hashHistory } from 'react-router';
 
 const VideosMiddleware = ({getState, dispatch}) => next => action => {
-  let error = e => console.log(e.responseJSON);
+  let error = err => dispatch(receiveErrors(err.responseJSON));
   let fetchVideoSuccess = video => dispatch(receiveVideo(video));
   let fetchVideosSuccess = (search) => videos => dispatch(receiveVideos(videos, search));
   let deleteVideoSuccess = video => dispatch(removeVideo(video));

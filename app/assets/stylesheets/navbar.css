@@ -19,9 +19,14 @@
 
 .session {
   display: flex;
+  flex-flow: row;
   justify-content: center;
   align-items: center;
   margin-right: 15px;
+}
+
+.sessionBtn {
+  margin-left: 5px;
 }
 
 .sessionBtn > button > img {

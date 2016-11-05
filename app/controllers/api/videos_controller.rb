@@ -14,13 +14,14 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find_by(id: params[:id])
+    @video.view_count += 1;
     render :show
   end
 
   def create
     parameters = video_params
-    category_id = parameters.category_id
-    parameters.delete(:categoryId)
+    category_id = Category.find_by(name: parameters[:category]).id
+    parameters.delete(:category)
     @video = Video.new(parameters)
     if @video.save
       Categorization.create(video_id: @video.id, category_id: category_id);
@@ -32,8 +33,8 @@ class Api::VideosController < ApplicationController
 
   def update
     parameters = video_params
-    category_id = parameters.category_id
-    parameters.delete(:categoryId);
+    category_id = Category.find_by(name: parameters[:category]).id
+    parameters.delete(:category);
     @video = Video.new(parameters)
     if @video.update
       if category_id
@@ -53,6 +54,6 @@ class Api::VideosController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit(:name, :youtube_id, :description, :categoryId)
+    params.require(:video).permit(:name, :youtube_id, :description, :category)
   end
 end

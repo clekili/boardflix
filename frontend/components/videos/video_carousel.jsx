@@ -14,8 +14,8 @@ const VideoCarousel = (props) => {
       <div className="carouselContainer">
         <Slider {...settings}>
           { props.videos.map((v, i) => (
-            <div>
-            <VideoCarouselItem video={v} key={i} />
+            <div key={i}>
+            <VideoCarouselItem key={i} video={v}/>
             </div>
           )) }
         </Slider>
