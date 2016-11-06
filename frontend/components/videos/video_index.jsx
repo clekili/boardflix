@@ -30,8 +30,10 @@ class VideoIndex extends React.Component {
 
   render () {
     let searchResults;
-    if(this.props.categories.hasOwnProperty("Search Results")){
-      searchResults = this.buildCarousel(this.props.videos["Search Results"]);
+    if(this.props.categories.includes("Search Results")){
+      searchResults = this.buildCarousel("Search Results");
+      let idx = this.props.categories.indexOf("Search Results");
+      this.props.categories.splice(idx, 1);
     }
 
     return (
