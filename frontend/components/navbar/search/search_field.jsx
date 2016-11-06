@@ -31,7 +31,7 @@ class SearchField extends React.Component {
 
   render() {
     if(this.props.loggedIn){
-    return ( <div className='searchBar'>
+    return ( <div className='searchField'>
                 <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
                   <TextField
                     hintText="Search..."
@@ -40,6 +40,10 @@ class SearchField extends React.Component {
                     value={this.state.searchString}
                   />
                 </MuiThemeProvider>
+                <img
+                  className="searchIcon"
+                  src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478468745/search_g7zx4p.png"
+                />
               </div>);
     }
     return null;

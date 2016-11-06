@@ -47,3 +47,17 @@
 .sessionInputFields {
   margin-left: 21px;
 }
+
+.searchField{
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  position:relative;
+}
+
+.searchIcon{
+  position: absolute;
+  right: 5px;
+  width: 32px;
+}
