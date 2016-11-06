@@ -15,7 +15,15 @@ class VideoIndex extends React.Component {
   buildCarousel(cat){
     if(this.props.videos[cat]){
       let videos = Object.values(this.props.videos[cat]);
-      return <li key={cat}><VideoCarousel category={cat} videos={videos}/></li>;
+      return (
+        <li key={cat}>
+          <VideoCarousel
+            category={cat}
+            videos={videos}
+            deleteVideo={this.props.deleteVideo}
+          />
+        </li>
+      );
     }
   }
 

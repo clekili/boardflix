@@ -6,7 +6,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SessionFormContainer from './session_form_container';
 import Dialog from 'material-ui/Dialog';
-import VideoFormContainer from '../../videos/video_form_container';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -21,38 +20,27 @@ class SessionButton extends React.Component {
     super(props);
     this.state = {
       show: false,
-      create: false,
       userMenu: false,
       anchorEl: undefined
     };
     this.openLoginDialog = this.openLoginDialog.bind(this);
-    this.openCreateDialog = this.openCreateDialog.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.closeLoginDialog = this.closeLoginDialog.bind(this);
     this.openUserMenu = this.openUserMenu.bind(this);
     this.closeUserMenu = this.closeUserMenu.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   openLoginDialog(e){
-    e.preventDefault();
     this.setState({show: true});
   }
 
-  openCreateDialog(e){
-    e.preventDefault();
-    this.setState({create: true});
+  closeLoginDialog(e){
+    this.setState({show: false});
   }
 
-  createVideoButton(){
-    if(this.props.isAdmin){
-      return (
-        <div className="sessionBtn">
-          <RaisedButton
-            label="Create Video"
-            onTouchTap={this.openCreateDialog}
-            />
-        </div>
-      );
-    }
+  handleLogout(){
+    this.closeUserMenu();
+    this.props.logout();
   }
 
   button(){
@@ -73,7 +61,7 @@ class SessionButton extends React.Component {
           >
             <Menu>
               <MenuItem primaryText="Profile" />
-              <MenuItem primaryText="Sign out" onTouchTap={this.props.logout} />
+              <MenuItem primaryText="Sign out" onTouchTap={this.handleLogout} />
             </Menu>
           </Popover>
         </div>
@@ -101,13 +89,7 @@ class SessionButton extends React.Component {
 
   componentWillReceiveProps(newProps){
     if(newProps.loggedIn)
-      this.handleClose();
-  }
-
-  handleClose(){
-    this.state.show = false;
-    this.state.create = false;
-    this.setState(this.state);
+      this.closeLoginDialog();
   }
 
   render() {
@@ -115,21 +97,14 @@ class SessionButton extends React.Component {
       <div className="session">
         <MuiThemeProvider   muiTheme={getMuiTheme(darkBaseTheme)}>
           <div className="session">
-            {this.createVideoButton()}
             {this.button()}
             <Dialog
               open={this.state.show}
               modal={false}
-              onRequestClose={this.handleClose}
+              onRequestClose={this.closeLoginDialog}
               contentStyle={dialogStyle}
             >
               <SessionFormContainer/>
-            </Dialog>
-            <Dialog
-              open={this.state.create}
-              modal={false}
-              onRequestClose={this.handleClose}>
-              <VideoFormContainer dialogType="create"/>
             </Dialog>
           </div>
         </MuiThemeProvider>

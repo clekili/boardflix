@@ -1,11 +1,11 @@
 import React from 'react';
 import LogoButton from './logo_button';
-import SessionButtonContainer from './session/session_button_container';
+import NavbarButtonPanel from './navbar_button_panel';
 
 const NavBar = () => (
   <div className='nav'>
-    <LogoButton />
-    <SessionButtonContainer />
+    <LogoButton/>
+    <NavbarButtonPanel/>
   </div>
 );
 

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchVideos } from '../../actions/video_actions';
+import { fetchVideos,
+         deleteVideo } from '../../actions/video_actions';
 import VideoIndex from './video_index';
 
 const mapStateToProps = state => ({
@@ -11,7 +12,8 @@ const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
   find: searchStr => dispatch(
                               fetchVideos("", searchStr)
-                              )
+                            ),
+  deleteVideo: (id) => dispatch(deleteVideo(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoIndex);

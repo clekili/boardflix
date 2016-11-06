@@ -21,17 +21,21 @@ class VideoCarouselItem  extends React.Component {
     this.setState({hovered: false});
   }
 
-  render () {
-    let videoHoverItem;
-    if(this.state.hovered)
-      videoHoverItem = <VideoHoverItem video={this.state.video}/>;
-
+  videoHoverItem(){
     return (
-      <div className="videoCarouselItem"
-           onMouseEnter={this.mouseOver} onMouseLeave={this.mouseLeave}>
+      <VideoHoverItem
+        video={this.state.video} hovered={this.state.hovered}
+        deleteVideo={this.props.deleteVideo}
+      />
+    );
+  }
+
+  render () {
+    return (
+      <div className="videoCarouselItem">
         <img className="videoThumbnail"
              src={this.getVideoThumbnail()}/>
-        {videoHoverItem}
+           {this.videoHoverItem()}
       </div>
     );
   }
@@ -41,11 +45,5 @@ class VideoCarouselItem  extends React.Component {
     return `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
   }
 }
-
-//   <div>
-//     <h2 key={i} className="videoTitle"> {v.name} </h2>
-//     <img className="videoThumbnail" src={getVideoThumbnail(v)}/>
-//   </div>
-// };
 
 export default VideoCarouselItem;

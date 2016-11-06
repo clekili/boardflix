@@ -48,12 +48,17 @@ class Api::VideosController < ApplicationController
   end
 
   def destroy
-    Video.find_by(id: params[:id]).destroy
-    render json: {}
+    @video = Video.find_by(id: params[:id])
+
+    if @video.destroy
+      render :show
+    else
+      render json: @video.errors.full_messages, status: 422
+    end
   end
 
   private
   def video_params
-    params.require(:video).permit(:name, :youtube_id, :description, :category)
+    params.require(:video).permit(:id, :name, :youtube_id, :description, :category, :view_count, :rating);
   end
 end

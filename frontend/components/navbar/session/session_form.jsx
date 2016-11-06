@@ -27,6 +27,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.handleAdminLogin = this.handleAdminLogin.bind(this);
   }
 
   update(field){
@@ -54,6 +55,15 @@ class SessionForm extends React.Component {
     this.props.login(user);
   }
 
+  handleAdminLogin(e){
+    e.preventDefault();
+    const user = {
+      username: 'admin',
+      password: 'password'
+    };
+    this.props.login(user);
+  }
+
   changeFormType(){
     let type = this.state.dialogType;
     this.state.dialogType = type === 'login' ? 'signup' : 'login';
@@ -62,7 +72,7 @@ class SessionForm extends React.Component {
 
 
   render(){
-    let text, changeFormText, linkDesc, demoLoginButton;
+    let text, changeFormText, linkDesc, demoLoginButton, adminLoginButton;
     if(this.state.dialogType === "login") {
       text = "Log in";
       linkDesc = "Don't have an account?";
@@ -73,8 +83,15 @@ class SessionForm extends React.Component {
       changeFormText = 'Log In';
       demoLoginButton = (
         <FlatButton label='Guest Login'
-                    secondary={true}
+                    primary={true}
                     onClick={this.handleGuestLogin}
+                    style={buttonStyle}
+                    />
+      );
+      adminLoginButton = (
+        <FlatButton label='Admin Login'
+                    secondary={true}
+                    onClick={this.handleAdminLogin}
                     style={buttonStyle}
                     />
       );
@@ -90,19 +107,21 @@ class SessionForm extends React.Component {
           </ul>
 
           <form onSubmit={this.handleSubmit}>
-            <TextField
-                hintText="Username"
-                floatingLabelText="Username"
-                value={this.state.user.username}
-                onChange={this.update('username')}
-            />
-            <TextField
-                hintText="Password"
-                floatingLabelText="Password"
-                type="password"
-                value={this.state.user.password}
-                onChange={this.update('password')}
-            />
+            <div className='sessionInputFields'>
+              <TextField
+                  hintText="Username"
+                  floatingLabelText="Username"
+                  value={this.state.user.username}
+                  onChange={this.update('username')}
+              />
+              <TextField
+                  hintText="Password"
+                  floatingLabelText="Password"
+                  type="password"
+                  value={this.state.user.password}
+                  onChange={this.update('password')}
+              />
+            </div>
             <br/>
             <FlatButton label={text}
                         type="submit"
@@ -110,6 +129,7 @@ class SessionForm extends React.Component {
                         />
             <br/>
             {demoLoginButton}
+            {adminLoginButton}
           </form>
           <label>{linkDesc} </label>
           <FlatButton

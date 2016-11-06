@@ -17,7 +17,7 @@
   margin-left: 15px;
 }
 
-.session {
+.navbarBtnPane {
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -44,6 +44,6 @@
   outline:0;
 }
 
-.sessionForm {
-  margin-left: 20px;
+.sessionInputFields {
+  margin-left: 21px;
 }

@@ -4,6 +4,10 @@
   width: 90%;
 }
 
+.videoSubmitBtn{
+  width: 100%;
+}
+
 .videoCarouselItem {
   padding: 0 10px;
 }
@@ -13,7 +17,12 @@
   z-index: 1;
 }
 
+.slick-slide:hover .videoHoverCover{
+  display: block;
+}
+
 .videoHoverCover{
+  display:none;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
   top: 0;
@@ -23,6 +32,9 @@
   text-align: center;
 }
 
+div { display: inline-block; }
+
+div { display: block; }
 .videoIndex {
   margin: 100px 0 50px 0;
 }
