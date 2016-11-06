@@ -20,30 +20,34 @@ class Api::VideosController < ApplicationController
 
   def create
     parameters = video_params
-    category_id = Category.find_by(name: parameters[:category]).id
+    category = Category.find_by(name: parameters[:category])
     parameters.delete(:category)
+    parameters.delete(:id)
     @video = Video.new(parameters)
-    if @video.save
-      Categorization.create(video_id: @video.id, category_id: category_id);
+    if category && @video.save
+      Categorization.create(video_id: @video.id, category_id: category.id);
       render :show
     else
-      render json: @video.errors.full_messages, status: 422
+      errors = @video.errors.full_messages
+      errors.push("Category can't be empty!") unless category
+      render json: errors, status: 422
     end
   end
 
   def update
     parameters = video_params
-    category_id = Category.find_by(name: parameters[:category]).id
+    category = Category.find_by(name: parameters[:category])
     parameters.delete(:category);
-    @video = Video.findy_by(id: video_params.id)
-    if @video.update(parameters)
-      if category_id
-        Categorization.find_by(video_id: @video.id).destroy
-        Categorization.create(video_id: @video.id, category_id: category_id);
-      end
+    @video = Video.find_by(id: parameters[:id])
+    parameters.delete(:id);
+    if category && @video.update(parameters)
+      Categorization.find_by(video_id: @video.id).destroy
+      Categorization.create(video_id: @video.id, category_id: category.id);
       render :show
     else
-      render json: @video.errors.full_messages, status: 422
+      errors = @video.errors.full_messages
+      errors.push("Category can't be empty!") unless category
+      render json: errors, status: 422
     end
   end
 

@@ -5,7 +5,6 @@ class VideoCarouselItem  extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      video: props.video,
       hovered: false
     };
 
@@ -24,7 +23,7 @@ class VideoCarouselItem  extends React.Component {
   videoHoverItem(){
     return (
       <VideoHoverItem
-        video={this.state.video} hovered={this.state.hovered}
+        video={this.props.video} hovered={this.state.hovered}
         deleteVideo={this.props.deleteVideo}
       />
     );
@@ -41,7 +40,7 @@ class VideoCarouselItem  extends React.Component {
   }
 
   getVideoThumbnail() {
-    let video = this.state.video;
+    let video = this.props.video;
     return `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
   }
 }

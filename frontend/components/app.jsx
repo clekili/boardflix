@@ -5,7 +5,7 @@ import Footer from './footer/footer';
 import VideoIndexContainer from './videos/video_index_container';
 
 const App = ({ children }) => (
-    <div>
+    <div id='app'>
       <NavBar />
       {children}
       <Footer />

@@ -9,16 +9,17 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import { merge } from 'lodash';
 
 class VideoDialog extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       show: false,
-      errors: props.errors,
       categories: props.categories,
       dialogType: props.dialogType,
-      video: props.video
+      video: merge({}, props.video),
+      errors: props.errors
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,10 +38,16 @@ class VideoDialog extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+
     if(this.props.dialogType === 'create')
       this.props.create(this.state.video);
     else
       this.props.update(this.state.video);
+
+    setTimeout( () => {
+    if(this.props.errors.length === 0)
+      this.handleClose();
+    }, 500);
   }
 
   handleClose(){
@@ -68,7 +75,6 @@ class VideoDialog extends React.Component {
                       {btnText}
                   </button>;
       }
-
     if(this.props.isAdmin){
       return (
         <div>
@@ -85,7 +91,7 @@ class VideoDialog extends React.Component {
                 onRequestClose={this.handleClose}>
               <div>
                 <ul className='errors'>
-                  {this.state.errors.map( (error, idx) => (
+                  {this.props.errors.map( (error, idx) => (
                     <li key={idx} className='error_item'>{error}</li>
                   ))}
                 </ul>

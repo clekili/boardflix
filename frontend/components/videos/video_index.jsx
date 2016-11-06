@@ -32,8 +32,10 @@ class VideoIndex extends React.Component {
     return (
       <div className="videoIndex">
         <ul>
-          {this.props.categories.map( category =>
-              ( this.buildCarousel(category) ))}
+          {this.props.categories.map( category => {
+            if(category !== 'errors')
+              return this.buildCarousel(category);
+          })}
         </ul>
       </div>
     );

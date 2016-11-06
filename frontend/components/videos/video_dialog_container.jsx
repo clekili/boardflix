@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { createVideo, updateVideo } from '../../actions/video_actions';
 import VideoDialog from './video_dialog';
+import { merge } from 'lodash';
 
 const defaultVideo = {
   name: "",
@@ -16,7 +17,7 @@ const isAdmin = (currentUser) => {
 const mapStateToProps = (state, ownProps) => ({
   isAdmin: isAdmin(state.session.currentUser),
   errors: state.videos.errors || [],
-  categories: Object.keys(state.videos),
+  categories: Object.keys(state.videos).filter( cat => cat !== "errors"),
   dialogType: ownProps.video ? "update" : "create",
   video: ownProps.video ? ownProps.video : defaultVideo
 });
