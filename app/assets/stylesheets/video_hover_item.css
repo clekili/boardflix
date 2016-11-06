@@ -1,0 +1,32 @@
+.videoTitle {
+  margin-top: 5%;
+}
+
+.playLink, .playLinkImg {
+  width: 64px;
+  opacity: 0.8;
+  padding-top: 5%;
+  margin: 0 auto;
+}
+
+.videoHoverCover button {
+  width: 80px;
+  cursor: pointer;
+  border: 0;
+}
+
+.videoHoverCover button:hover{
+  transform: scale(1.2);
+}
+
+.videoHoverCover .videoDialogBtn > button {
+  background-color: #FFA726;
+}
+
+.deleteVideo {
+  background-color: #B71C1C;
+}
+
+.videoHoverCover > div {
+  display: inline-block;
+}
