@@ -21,7 +21,6 @@ class VideoIndex extends React.Component {
           <VideoCarousel
             category={cat}
             videos={videos}
-            deleteVideo={this.props.deleteVideo}
           />
         </li>
       );

@@ -18,7 +18,6 @@ const VideoCarousel = (props) => {
             <VideoCarouselItem
               key={i}
               video={v}
-              deleteVideo={props.deleteVideo}
             />
             </div>
           )) }

@@ -24,7 +24,6 @@ class VideoCarouselItem  extends React.Component {
     return (
       <VideoHoverItem
         video={this.props.video} hovered={this.state.hovered}
-        deleteVideo={this.props.deleteVideo}
       />
     );
   }

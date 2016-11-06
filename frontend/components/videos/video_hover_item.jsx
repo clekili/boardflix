@@ -1,20 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import VideoDialogContainer from './video_dialog_container';
+import DeleteButtonContainer from './delete_button_container';
 
 class VideoHoverItem extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      showEdit: false
-    };
-
-    this.deleteVideo = this.deleteVideo.bind(this);
-  }
-
-  deleteVideo(e){
-    e.preventDefault();
-    this.props.deleteVideo(this.props.video.id);
   }
 
   render(){
@@ -33,11 +24,7 @@ class VideoHoverItem extends React.Component {
           video={this.props.video}
         />
         <br/>
-        <button
-          className="deleteVideo"
-          onClick={this.deleteVideo}>
-          Delete
-        </button>
+        <DeleteButtonContainer video={this.props.video}/>
         <br/>
         <button className="videoDetailsBtn">Details</button>
       </div>

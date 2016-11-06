@@ -12,8 +12,7 @@ const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
   find: searchStr => dispatch(
                               fetchVideos("", searchStr)
-                            ),
-  deleteVideo: (id) => dispatch(deleteVideo(id))
+                            )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoIndex);
