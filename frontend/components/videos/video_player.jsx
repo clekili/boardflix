@@ -5,6 +5,10 @@ class VideoPlayer extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+
+  }
+
   componentDidMount() {
     this.props.fetchVideo();
   }
@@ -15,7 +19,7 @@ class VideoPlayer extends React.Component {
       <div className='videoPlayer'>
         <iframe
           className='embeddedPlayer'
-          src={`https://www.youtube.com/embed/${video.youtube_id}`}
+          src={`https://www.youtube.com/embed/${video.youtube_id}?autoplay=1&modestbranding=1&showinfo=0&iv_load_policy=3`}
           frameBorder="0"
           allowFullScreen>
         </iframe>
