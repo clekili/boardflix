@@ -29,9 +29,15 @@ class VideoIndex extends React.Component {
   }
 
   render () {
+    let searchResults;
+    if(this.props.categories.hasOwnProperty("Search Results")){
+      searchResults = this.buildCarousel(this.props.videos["Search Results"]);
+    }
+
     return (
       <div className="videoIndex">
         <ul>
+          {searchResults}
           {this.props.categories.map( category => {
             if(category !== 'errors')
               return this.buildCarousel(category);

@@ -1,5 +1,5 @@
-export const FETCH_VIDEOS = "FETCH_POSTS";
-export const FETCH_VIDEO = "FETCH_POST";
+export const FETCH_VIDEOS = "FETCH_VIDEOS";
+export const FETCH_VIDEO = "FETCH_VIDEO";
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";

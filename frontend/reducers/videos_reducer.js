@@ -9,7 +9,14 @@ const VideosReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_VIDEOS:
       if(action.search) {
-        return merge({}, oldState, { search: action.videos});
+        delete newState["Search Results"];
+        let found = {};
+        Object.keys(action.videos).forEach( cat => {
+          found = merge(found, action.videos[cat]);
+        });
+        if( !$.isEmptyObject(found) )
+          newState = merge({}, newState, { "Search Results": found});
+        return newState;
       }
       return merge({}, action.videos);
     case RECEIVE_VIDEO:
