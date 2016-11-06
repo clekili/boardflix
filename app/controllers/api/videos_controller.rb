@@ -14,7 +14,7 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find_by(id: params[:id])
-    @video.view_count += 1;
+    @video.update(view_count: @video.view_count + 1)
     render :show
   end
 
@@ -35,8 +35,8 @@ class Api::VideosController < ApplicationController
     parameters = video_params
     category_id = Category.find_by(name: parameters[:category]).id
     parameters.delete(:category);
-    @video = Video.new(parameters)
-    if @video.update
+    @video = Video.findy_by(id: video_params.id)
+    if @video.update(parameters)
       if category_id
         Categorization.find_by(video_id: @video.id).destroy
         Categorization.create(video_id: @video.id, category_id: category_id);

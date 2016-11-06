@@ -44,7 +44,10 @@ class VideoDialog extends React.Component {
   }
 
   handleClose(){
-    this.setState({show: false});
+    if(this.props.dialogType === 'create')
+      this.setState({show: false, video: {}});
+    else
+      this.setState({show: false});
   }
 
   handleOpen(){

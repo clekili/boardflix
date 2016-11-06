@@ -9,6 +9,7 @@ class VideoIndex extends React.Component {
   }
 
   componentDidMount() {
+    // TODO only fetch when not fetched
     this.props.fetchVideos();
   }
 
