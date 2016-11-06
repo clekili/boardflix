@@ -50,29 +50,27 @@ Categorization.create(video_id: Video.last.id, category_id: 2)
 
 ##### SURF
 
-Video.create(
-  name: 'Little Victories',
-  youtube_id: 'sJmYTYhqgXo',
-  description: "'Little Victories' is a 30-minute surf film by Perry Gershkow about venturing all along the California coastline in search of wave variety, terrain, and creating little victories along the way.")
-Categorization.create(video_id: Video.last.id, category_id: 3)
 
 Video.create(
   name: 'The Search',
   youtube_id: '-QvdY0F15YI',
-  description: "It's the driving force that lead to the creation of Rip Curl. It's all about pure Searching for Surf and enjoying the beautiful ride along the way. This clip sums up that deep rooted sense of exploration and desire and invites you in for a deeper look, for and at yourse"
-)
+  description: "It's the driving force that lead to the creation of Rip Curl. It's all about pure Searching for Surf and enjoying the beautiful ride along the way. This clip sums up that deep rooted sense of exploration and desire and invites you in for a deeper look, for and at yourself.")
 Categorization.create(video_id: Video.last.id, category_id: 3)
 
 Video.create(
   name: 'View From A Blue Moon',
   youtube_id: 'bTqVqk7FSmY',
-  description: "See the sport of surfing as it’s never been captured before in John Florence and Blake Vincent Kueny’s second signature release, in association with award-winning film studio, Brain Farm."
-)
+  description: "See the sport of surfing as it’s never been captured before in John Florence and Blake Vincent Kueny’s second signature release, in association with award-winning film studio, Brain Farm.")
 Categorization.create(video_id: Video.last.id, category_id: 3)
 
 Video.create(
   name: 'One Shot',
   youtube_id: 'kqRA5QDw42A',
-  description: "ONE SHOT is a short documentary that looks into the life of Russell Ord, a West Australian, world renowned surf photographer as he embarks on a mission to capture 'one shot' that defines who he is. An inspiring journey about taking a chance, following your dreams and living a life without restrictions. You only get one shot at life…you have to live it as best you can."
-)
+  description: "ONE SHOT is a short documentary that looks into the life of Russell Ord, a West Australian, world renowned surf photographer as he embarks on a mission to capture 'one shot' that defines who he is. An inspiring journey about taking a chance, following your dreams and living a life without restrictions. You only get one shot at life…you have to live it as best you can.")
+Categorization.create(video_id: Video.last.id, category_id: 3)
+
+Video.create(
+  name: 'Little Victories',
+  youtube_id: 'sJmYTYhqgXo',
+  description: "'Little Victories' is a 30-minute surf film by Perry Gershkow about venturing all along the California coastline in search of wave variety, terrain, and creating little victories along the way.")
 Categorization.create(video_id: Video.last.id, category_id: 3)
