@@ -20,10 +20,7 @@ class VideoHoverItem extends React.Component {
           Play
         </Link>
         <br/>
-        <VideoDialogContainer
-          video={this.props.video}
-        />
-        <br/>
+        <VideoDialogContainer video={this.props.video}/>
         <DeleteButtonContainer video={this.props.video}/>
         <br/>
         <button className="videoDetailsBtn">Details</button>

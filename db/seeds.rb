@@ -29,9 +29,15 @@ Video.create(
 Categorization.create(video_id: Video.last.id, category_id: 1)
 
 Video.create(
-name: 'The Search for Perfection',
-youtube_id: 'tXpXHoDKL64',
-description: 'Explore Japan with GoPro athletes John Jackson and Chris Benchetler as they seek to find a moment of perfection in the snow. Follow the journey from the bustling city of Tokyo, to the rural beauty in Hakuba, and finally to the wintery north island of Hokkaido as they find endless fields of untracked powder.')
+  name: 'The Search for Perfection',
+  youtube_id: 'tXpXHoDKL64',
+  description: 'Explore Japan with GoPro athletes John Jackson and Chris Benchetler as they seek to find a moment of perfection in the snow. Follow the journey from the bustling city of Tokyo, to the rural beauty in Hakuba, and finally to the wintery north island of Hokkaido as they find endless fields of untracked powder.')
+Categorization.create(video_id: Video.last.id, category_id: 1)
+
+Video.create(
+  name: "Snowboarding : For Me",
+  youtube_id: 'WUdefl_j2-8',
+  description: 'From the streets of Finland to the backcountry of British Columbia, from Norway to Japan,"Snowboarding: For Me” brings to life the unique relationship between members of Oakley\'s world-class snowboarding team and the sport and lifestyle they inhabit every single day.')
 Categorization.create(video_id: Video.last.id, category_id: 1)
 
 ##### SKATEBOARD
