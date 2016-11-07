@@ -9,13 +9,16 @@ class VideoIndex extends React.Component {
   }
 
   componentDidMount() {
-    // TODO only fetch when not fetched
     this.props.fetchVideos();
   }
 
   buildCarousel(cat){
     if(this.props.videos[cat]){
-      let videos = Object.values(this.props.videos[cat]);
+      let videoIds = Object.keys(this.props.videos[cat]);
+      let videos = [];
+      videoIds.forEach( id => {
+        videos.push(this.props.videos[cat][id]);
+      });
       return (
         <li key={cat}>
           <VideoCarousel

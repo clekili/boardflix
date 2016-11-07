@@ -1,9 +1,10 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import {Popover, PopoverAnimationVertical} from 'material-ui/Popover';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import DetailsContainer from './details_container';
+import Overview from './overview';
 
 class VideoPopover extends React.Component {
   constructor(props){
@@ -13,11 +14,12 @@ class VideoPopover extends React.Component {
       video: props.video,
       show: false,
       anchorEl: undefined,
-      // TODO showing: 'overview'
+      displaying: 'overview'
     };
 
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
+    this.show = this.show.bind(this);
   }
 
   close(){
@@ -37,15 +39,23 @@ class VideoPopover extends React.Component {
       height: parentHeight + 300
     }, 400, ()=>{});
 
-
-    // let anchorEl = $(e.currentTarget).parentsUntil(".slick-slide");
-    // anchorEl = anchorEl[anchorEl.length - 1];
     let parentEl = $slider;
     let anchorEl = slider[4];
     this.setState({show: true, anchorEl, parentEl, parentHeight});
   }
 
+  show(content){
+    return (e) => {
+      e.preventDefault();
+      this.setState({displaying: content});
+    };
+  }
+
   render(){
+    let content = <Overview video={this.state.video}/>;
+    if(this.state.displaying === 'details')
+      content = <DetailsContainer video={this.state.video}/>;
+
     return (
       <div className='videoPopover'>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
@@ -66,9 +76,9 @@ class VideoPopover extends React.Component {
             canAutoPosition={false}
             onRequestClose={this.close}
           >
-            <div className='detailsPane'>
-              {this.state.video.name}
-            </div>
+            {content}
+            <button onClick={this.show('overview')}>Overview</button>
+            <button onClick={this.show('details')}>Details</button>
           </Popover>
           </div>
         </MuiThemeProvider>
