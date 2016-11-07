@@ -16,6 +16,7 @@ class Video < ActiveRecord::Base
   validates :name, :youtube_id, presence: true
   validates :name, uniqueness: true
 
+  has_many :comments
   has_many :categorizations
 
   has_many :categories,
