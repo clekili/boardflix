@@ -1,0 +1,11 @@
+.star {
+  color: gray;
+}
+
+.starRed {
+  color: red;
+}
+
+.stars ul li {
+  display: inline-block;
+}
