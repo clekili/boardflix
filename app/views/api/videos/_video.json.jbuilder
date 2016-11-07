@@ -7,3 +7,4 @@ json.rating video.rating
 unless video.categories.empty?
   json.category video.categories[0].name
 end
+json.comments video.comments.map{ |c| c.id }
