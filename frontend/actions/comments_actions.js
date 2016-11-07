@@ -12,7 +12,7 @@ export const fetchComments = () => ({
   type: FETCH_COMMENTS
 });
 
-export const fetchVideo = id => ({
+export const fetchComment = id => ({
   type: FETCH_COMMENT,
   id
 });
