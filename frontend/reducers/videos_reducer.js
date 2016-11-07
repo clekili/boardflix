@@ -20,7 +20,7 @@ const VideosReducer = (oldState = {}, action) => {
       }
       return merge({}, action.videos);
     case RECEIVE_VIDEO:
-      return merge({}, oldState, action.video);
+      return mergeVideo(newState, action.video);
     case REMOVE_VIDEO:
       newState = removeVideo(newState, action.video);
       return newState;
@@ -32,12 +32,20 @@ const VideosReducer = (oldState = {}, action) => {
   }
 };
 
+const mergeVideo = (state, video) => {
+  let category = getCategory(video);
+  let id = Object.keys(video[category])[0];
+  state[category][id] = video[category][id];
+  return state;
+};
+
 const removeVideo = (state, video) => {
-  let category = Object.keys(video);
-  category = category[0];
+  let category = getCategory(video);
   let id = Object.keys(video[category])[0];
   delete state[category][id];
   return state;
 };
+
+const getCategory = (video) => ( Object.keys(video)[0] );
 
 export default VideosReducer;

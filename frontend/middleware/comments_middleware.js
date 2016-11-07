@@ -25,6 +25,7 @@ const CommentsMiddleware = ({ getState, dispatch }) => next => action => {
   let error = err => dispatch(receiveErrors(err.responseJSON));
   let fetchCommentSuccess = comment => {
     dispatch(receiveComment(comment));
+    dispatch(fetchVideo(comment.video_id));
   };
   let fetchCommentsSuccess = comments => dispatch(receiveComments(comments));
   let deleteCommentSuccess = comment => {
