@@ -140,12 +140,14 @@
   width: 80px;
   right: -40px;
   background: black;
+  background-image: url("http://res.cloudinary.com/ddqzltwv6/image/upload/c_scale,w_32/v1478499801/nextArrowup_spf89h.png");
+  background-repeat: no-repeat;
+  background-position: center;
   opacity: 0;
 }
-.slick-next:before
-{
+.slick-next:before{
     height: 100%;
-    content: '→';
+    content: '';
 }
 
 .slick-prev:before{
