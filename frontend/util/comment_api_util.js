@@ -1,4 +1,4 @@
-export const fetchVideos = (success, error) => {
+export const fetchComments = (success, error) => {
   $.ajax({
     type: 'get',
     url: `api/comments`,
@@ -7,7 +7,7 @@ export const fetchVideos = (success, error) => {
   });
 };
 
-export const fetchVideo = (id, success, error) =>{
+export const fetchComment = (id, success, error) =>{
   $.ajax({
     type: 'get',
     url: `api/comments/${id}`,
@@ -36,7 +36,7 @@ export const updateComment = (comment, success, error) =>{
   });
 };
 
-export const deleteVideo = (id, success, error) =>{
+export const deleteComment = (id, success, error) =>{
   $.ajax({
     type: 'delete',
     url: `api/comments/${id}`,
