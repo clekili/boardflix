@@ -47,13 +47,14 @@ class VideoPopover extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className='videoPopover'>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <div>
-          <RaisedButton
+          <button
             onClick={this.open}
-            label="Details"
-          />
+            className='detailsButton'>
+            <img src="http://res.cloudinary.com/ddqzltwv6/image/upload/c_scale,h_20/v1478506717/downArrow_bu2x30.png"/>
+          </button>
           <Popover
             className='detailsPane'
             open={this.state.show}

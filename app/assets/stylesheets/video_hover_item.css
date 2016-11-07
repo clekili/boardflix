@@ -1,5 +1,5 @@
 .videoTitle {
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .playLink, .playLinkImg {
@@ -10,13 +10,21 @@
 }
 
 .videoHoverCover button {
-  width: 80px;
   cursor: pointer;
   border: 0;
 }
 
-.videoHoverCover button:hover{
+.videoHoverCover button:focus {
+  outline:0;
+}
+
+.detailsButton > img {
+  margin: 0 auto;
+  transition: all .3s ease-in-out;
+}
+.videoHoverCover button:hover > img {
   transform: scale(1.2);
+  opacity: 1;
 }
 
 .videoHoverCover .videoDialogBtn > button {
@@ -29,4 +37,23 @@
 
 .videoHoverCover > div {
   display: inline-block;
+}
+
+.videoHoverCover {
+  display: relative;
+}
+
+.detailsButton {
+  position:absolute;
+  left: 0;
+  bottom: 20px;
+  height: 20px;
+  width: 100%;
+  background: black;
+  opacity: 0.5;
+}
+
+.videoPopover{
+  bottom: 0;
+  width: 100%;
 }
