@@ -17,13 +17,20 @@ import {
   fetchComments,
   fetchComment
 } from '../util/comment_api_util';
-
+import {
+  fetchVideo
+} from '../actions/video_actions';
 
 const CommentsMiddleware = ({ getState, dispatch }) => next => action => {
   let error = err => dispatch(receiveErrors(err.responseJSON));
-  let fetchCommentSuccess = comment => dispatch(receiveComment(comment));
+  let fetchCommentSuccess = comment => {
+    dispatch(receiveComment(comment));
+  };
   let fetchCommentsSuccess = comments => dispatch(receiveComments(comments));
-  let deleteCommentSuccess = comment => dispatch(removeComment(comment));
+  let deleteCommentSuccess = comment => {
+    dispatch(removeComment(comment));
+    dispatch(fetchVideo(comment.video_id));
+  };
 
   switch (action.type) {
     case FETCH_COMMENTS:

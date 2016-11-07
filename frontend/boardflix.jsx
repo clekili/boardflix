@@ -5,7 +5,7 @@ import Root from './components/root';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // FOR TESTING
-import { fetchVideos } from './actions/video_actions';
+import * as CommentActions from './actions/comment_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   injectTapEventPlugin();
@@ -22,5 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TESTING
   window.store = store;
-  window.fetchVideos = fetchVideos;
+  window.commentActions = CommentActions;
 });
