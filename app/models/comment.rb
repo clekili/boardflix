@@ -16,4 +16,17 @@ class Comment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :video
+
+  after_create :update_average_rating
+  after_update :update_average_rating
+  before_destroy :update_average_rating
+
+  def update_average_rating
+    p 'updating video'
+    video = self.video
+    comments = video.comments
+    rating = comments.inject(0){ |sum, el| sum + el.rating}.to_f / comments.size
+    video.update(rating: rating.round);
+    p video.rating
+  end
 end

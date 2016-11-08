@@ -1,5 +1,8 @@
 User.create(username: 'guest', password: 'password')
 User.create(username: 'admin', password: 'password', is_admin: true)
+User.create(username: 'can', password: 'password')
+User.create(username: 'dylan', password: 'password')
+User.create(username: 'moran', password: 'password')
 
 Category.create([
   { name: 'Snowboard' },
@@ -80,3 +83,13 @@ Video.create(
   youtube_id: 'sJmYTYhqgXo',
   description: "'Little Victories' is a 30-minute surf film by Perry Gershkow about venturing all along the California coastline in search of wave variety, terrain, and creating little victories along the way.")
 Categorization.create(video_id: Video.last.id, category_id: 3)
+
+
+
+Video.all.each do |video|
+  User.all.each do |user|
+    body = Faker::Hipster.sentences(2).join(" ")
+    rating = Faker::Number.between(1, 5)
+    Comment.create(user_id: user.id, video_id: video.id, body: body, rating: rating);
+  end
+end

@@ -12,7 +12,6 @@ class Api::CommentsController < ApplicationController
     parameters.delete(:id)
     @comment = Comment.new(parameters)
     if @comment.save
-      update_average_rating(@comment.video)
       render :show
     else
       render json: @comment.errors.full_messages, status: 422
@@ -25,7 +24,6 @@ class Api::CommentsController < ApplicationController
     parameters.delete(:id)
     @comment = Comment.find_by(id: id)
     if @comment.update(parameters)
-      update_average_rating(@comment.video)
       render :show
     else
       render json: @comment.errors.full_messages, status: 422
@@ -35,7 +33,6 @@ class Api::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by(id: params[:id])
     if @comment.destroy
-      update_average_rating(@comment.video)
       render :show
     else
       render json: @comment.errors.full_messages, status: 422
@@ -45,11 +42,5 @@ class Api::CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:id, :user_id, :video_id, :body, :rating)
-  end
-
-  def update_average_rating(video)
-    comments = video.comments
-    rating = comments.inject(0){ |sum, el| sum + el.rating}.to_f / comments.size
-    video.update(rating: rating.round);
   end
 end
