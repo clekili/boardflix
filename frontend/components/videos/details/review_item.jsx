@@ -1,10 +1,10 @@
 import React from 'react';
+import Stars from './stars';
 
 const ReviewItem = ({comment}) => (
   <div className='reviewItem'>
-    Rating : {comment.rating}
-    <br/>
-    {comment.body}
+    <Stars rating={comment.rating}/>
+    <p>{comment.body}</p>
   </div>
 );
 

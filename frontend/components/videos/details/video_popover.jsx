@@ -66,7 +66,7 @@ class VideoPopover extends React.Component {
             <img src="http://res.cloudinary.com/ddqzltwv6/image/upload/c_scale,h_20/v1478506717/downArrow_bu2x30.png"/>
           </button>
           <Popover
-            className='detailsPane'
+            className='detailsPopover'
             open={this.state.show}
             anchorEl={this.state.anchorEl}
             anchorOrigin={{horizontal: 'middle', vertical: 'bottom'}}
@@ -77,8 +77,10 @@ class VideoPopover extends React.Component {
             onRequestClose={this.close}
           >
             {content}
+            <div className='detailsPopoverButtonsPane'>
             <button onClick={this.show('overview')}>Overview</button>
             <button onClick={this.show('details')}>Details</button>
+            </div>
           </Popover>
           </div>
         </MuiThemeProvider>

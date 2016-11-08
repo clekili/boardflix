@@ -32,15 +32,23 @@ class Stars extends React.Component {
 
   renderStar(num){
     let color = this.state.rating >= num ? 'starRed' : "" ;
-    return (
-      <div className={"star " + color}
-         name={num}
-         onMouseEnter={this.handleHoverOn}
-         onMouseLeave={this.handleHoverOff}
-         onClick={this.props.setRating(num)}>
-         &#9733;
-      </div>
-    );
+    if(this.props.active){
+      return (
+        <div className={"star " + color}
+           name={num}
+           onMouseEnter={this.handleHoverOn}
+           onMouseLeave={this.handleHoverOff}
+           onClick={this.props.setRating(num)}>
+           &#9733;
+        </div>
+      );
+    } else {
+      return (
+        <div className={"star " + color}>
+           &#9733;
+        </div>
+      );
+    }
   }
 
   render(){

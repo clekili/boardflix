@@ -1,5 +1,51 @@
-.detailsPane {
-  background: black;
+.detailsPopover {
   width: 100%;
   height: 300px;
+  position: relative;
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif !IMPORTANT;
+}
+
+.viewCount {
+  margin: 0 10px;
+}
+
+.detailsPopoverButtonsPane {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.detailsPopover h1 {
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
+.detailsPopover h2 {
+  margin: 5px 40px;
+  font-size: 15px;
+  color: gray;
+}
+
+.details {
+  width: 60%;
+  height: 100%;
+  display: inline-table;
+}
+
+.reviewsDisplay{
+  height: 200px;
+  width: 100%;
+}
+
+.reviewItem {
+  float: left;
+  margin: 10px;
+}
+
+.reviewItem > p {
+  max-width: 150px;
 }
