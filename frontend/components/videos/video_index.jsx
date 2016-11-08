@@ -12,7 +12,7 @@ class VideoIndex extends React.Component {
     this.props.fetchVideos();
   }
 
-  buildCarousel(cat){
+  buildCarousel(cat, infinite = true){
     if(this.props.videos[cat]){
       let videoIds = Object.keys(this.props.videos[cat]);
       let videos = [];
@@ -24,6 +24,7 @@ class VideoIndex extends React.Component {
           <VideoCarousel
             category={cat}
             videos={videos}
+            infinite={infinite}
           />
         </li>
       );
@@ -33,7 +34,7 @@ class VideoIndex extends React.Component {
   render () {
     let searchResults;
     if(this.props.categories.includes("Search Results")){
-      searchResults = this.buildCarousel("Search Results");
+      searchResults = this.buildCarousel("Search Results", false);
       let idx = this.props.categories.indexOf("Search Results");
       this.props.categories.splice(idx, 1);
     }

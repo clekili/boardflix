@@ -5,7 +5,8 @@ import VideoCarouselItem from './video_carousel_item';
 const VideoCarousel = (props) => {
   var settings = {
     slidesToShow: 3,
-	  slidesToScroll: 2
+	  slidesToScroll: 2,
+    infinite: props.infinite
   };
 
   return (

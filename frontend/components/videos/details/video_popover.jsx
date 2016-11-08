@@ -72,7 +72,7 @@ class VideoPopover extends React.Component {
             anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             animation={PopoverAnimationVertical}
-            autoCloseWhenOffScreen={false}
+            autoCloseWhenOffScreen={true}
             canAutoPosition={false}
             onRequestClose={this.close}
           >
