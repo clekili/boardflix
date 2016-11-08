@@ -4,16 +4,16 @@ class Api::VideosController < ApplicationController
     search_string = params[:search];
     if(category_name && !category_name.empty?)
       category = Category.find_by(name: category_name)
-      @videos = category.videos
+      @videos = category.videos.includes(:comments, :categories)
     elsif(search_string && !search_string.empty?)
-      @videos = Video.where('name ILIKE ?', "%#{search_string}%").all
+      @videos = Video.where('name ILIKE ?', "%#{search_string}%").includes(:comments, :categories).all
     else
-      @videos = Video.all
+      @videos = Video.includes(:comments, :categories).all
     end
   end
 
   def show
-    @video = Video.find_by(id: params[:id])
+    @video = Video.includes(:comments, :categories).find_by(id: params[:id])
     @video.update(view_count: @video.view_count + 1)
     render :show
   end
