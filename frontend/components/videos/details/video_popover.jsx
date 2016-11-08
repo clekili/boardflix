@@ -69,13 +69,17 @@ class VideoPopover extends React.Component {
             className='detailsPopover'
             open={this.state.show}
             anchorEl={this.state.anchorEl}
-            anchorOrigin={{horizontal: 'middle', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'middle', vertical: 'top'}}
+            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'right', vertical: 'top'}}
             animation={PopoverAnimationVertical}
             autoCloseWhenOffScreen={true}
             canAutoPosition={false}
             onRequestClose={this.close}
           >
+            <div className="detailsBackgrounGradient"></div>
+            <img
+              className="detailsBackgroundImg"
+              src={`https://img.youtube.com/vi/${this.state.video.youtube_id}/hqdefault.jpg`}/>
             {content}
             <div className='detailsPopoverButtonsPane'>
             <button onClick={this.show('overview')}>Overview</button>

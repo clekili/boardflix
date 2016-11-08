@@ -4,6 +4,30 @@
   position: relative;
   font-size: 12px;
   font-family: 'Raleway', sans-serif !IMPORTANT;
+  overflow: hidden !IMPORTANT;
+}
+
+.detailsBackgrounGradient {
+  position: absolute;
+  background: -moz-linear-gradient(left, rgba(0,0,0,1) 43%, rgba(0,0,0,0.65) 53%, rgba(0,0,0,0.56) 63%, rgba(0,0,0,0) 100%);
+  background: -webkit-linear-gradient(left, rgba(0,0,0,1) 43%,rgba(0,0,0,0.65) 53%,rgba(0,0,0,0.56) 63%,rgba(0,0,0,0) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,1) 43%,rgba(0,0,0,0.65) 53%,rgba(0,0,0,0.56) 63%,rgba(0,0,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );
+
+  position:absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+
+.detailsBackgroundImg{
+  position:absolute;
+  z-index: -2;
+  right: 0;
+  top: -35%;
+  width: 60%;
 }
 
 .viewCount {
