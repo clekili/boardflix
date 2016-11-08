@@ -17,7 +17,7 @@ class Video < ActiveRecord::Base
   validates :name, uniqueness: true
 
   has_many :comments, :dependent => :destroy
-  has_many :categorizations, :dependent => :destroy
+  has_many :categorizations
 
   has_many :categories,
     through: :categorizations,
