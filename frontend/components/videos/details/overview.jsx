@@ -11,7 +11,7 @@ const Overview = (props) => (
       <Stars rating={props.video.rating}/>
       </section>
       <br/>
-    <span>{props.video.description}</span>
+      <p>{props.video.description}</p>
     <br/>
   </div>
 );

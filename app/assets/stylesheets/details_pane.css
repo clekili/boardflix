@@ -49,3 +49,8 @@
 .reviewItem > p {
   max-width: 150px;
 }
+
+.overview p {
+  margin-left: 10px;
+  max-width: 40%;
+}

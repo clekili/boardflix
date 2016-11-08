@@ -19,7 +19,7 @@
   margin-bottom: 5px;
 }
 
-.commentFormBody {
+#commentFormBody {
   width: 90%;
   border: 1px solid gray;
   background: black;

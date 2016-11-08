@@ -102,14 +102,13 @@ class CommentForm extends React.Component{
         <Stars rating={this.state.rating}
                setRating={this.setRating}
                active={true}/>
-        <label> Review
+             <label htmlFor='commentFormBody'>Review</label>
         <textarea
             rows='10'
             value={this.state.body}
             onChange={this.updateBody}
-            className='commentFormBody'
+            id='commentFormBody'
         />
-        </label>
         <br/>
         <button onClick={this.submitAction}>{submitText}</button>
         {deleteButton}
