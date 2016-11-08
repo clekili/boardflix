@@ -40,7 +40,7 @@ class VideoPopover extends React.Component {
     }, 400, ()=>{});
 
     let parentEl = $slider;
-    let anchorEl = slider[4];
+    let anchorEl = slider[3];
     this.setState({show: true, anchorEl, parentEl, parentHeight});
   }
 
@@ -49,6 +49,26 @@ class VideoPopover extends React.Component {
       e.preventDefault();
       this.setState({displaying: content});
     };
+  }
+
+  renderButtons(){
+    if(this.state.displaying === 'overview'){
+      return (
+        <div className='detailsPopoverButtonsPane'>
+          <button className="activeButton"
+                  onClick={this.show('overview')}>Overview</button>
+          <button onClick={this.show('details')}>Details</button>
+        </div>
+      );
+    } else {
+      return (
+        <div className='detailsPopoverButtonsPane'>
+          <button onClick={this.show('overview')}>Overview</button>
+          <button className="activeButton"
+                  onClick={this.show('details')}>Details</button>
+        </div>
+      );
+    }
   }
 
   render(){
@@ -72,7 +92,7 @@ class VideoPopover extends React.Component {
             anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             animation={PopoverAnimationVertical}
-            autoCloseWhenOffScreen={true}
+            autoCloseWhenOffScreen={false}
             canAutoPosition={false}
             onRequestClose={this.close}
           >
@@ -81,10 +101,7 @@ class VideoPopover extends React.Component {
               className="detailsBackgroundImg"
               src={`https://img.youtube.com/vi/${this.state.video.youtube_id}/hqdefault.jpg`}/>
             {content}
-            <div className='detailsPopoverButtonsPane'>
-            <button onClick={this.show('overview')}>Overview</button>
-            <button onClick={this.show('details')}>Details</button>
-            </div>
+            {this.renderButtons()}
           </Popover>
           </div>
         </MuiThemeProvider>

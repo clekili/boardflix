@@ -9,12 +9,17 @@
 
 .detailsPopover button {
   font-family: 'Raleway', sans-serif !IMPORTANT;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
   border: none;
   color: white;
   opacity: 0.7;
   font-size: 15px;
   padding: 10px;
+  cursor: pointer;
+}
+
+.detailsPopover button:focus {
+  outline:0;
 }
 
 .detailsPopover button:hover {
@@ -22,6 +27,15 @@
   transition: opacity .25s ease-in-out;
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.detailsPopover .activeButton {
+  border-bottom: solid 2px red;
+}
+
+.detailsPopover .commentButton {
+  margin: 0 auto;
+  background: red;
 }
 
 .detailsBackgrounGradient {
@@ -43,8 +57,8 @@
   position:absolute;
   z-index: -2;
   right: 0;
-  top: -15%;
-  min-height: 130%;
+  top: -20%;
+  min-height: 140%;
   min-width: 60%;
 }
 
