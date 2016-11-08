@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   let comment = findOwnComment(state.session.currentUser.id
                             , ownProps.video.id
                             , state);
-  console.log(comment);
+
   return {
   userId: state.session.currentUser.id,
   videoId: ownProps.video.id,
