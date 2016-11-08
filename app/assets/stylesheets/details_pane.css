@@ -7,6 +7,23 @@
   overflow: hidden !IMPORTANT;
 }
 
+.detailsPopover button {
+  font-family: 'Raleway', sans-serif !IMPORTANT;
+  background-color: transparent;
+  border: none;
+  color: white;
+  opacity: 0.7;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.detailsPopover button:hover {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
 .detailsBackgrounGradient {
   position: absolute;
   background: -moz-linear-gradient(left, rgba(0,0,0,1) 43%, rgba(0,0,0,0.65) 53%, rgba(0,0,0,0.56) 63%, rgba(0,0,0,0) 100%);
@@ -26,8 +43,9 @@
   position:absolute;
   z-index: -2;
   right: 0;
-  top: -35%;
-  width: 60%;
+  top: -15%;
+  min-height: 130%;
+  min-width: 60%;
 }
 
 .viewCount {
@@ -61,20 +79,82 @@
 }
 
 .reviewsDisplay{
-  height: 200px;
+  height: 150px;
   width: 100%;
+  overflow: hidden;
 }
 
-.reviewItem {
+.reviewsDisplay > .reviewItem {
   float: left;
   margin: 10px;
 }
 
-.reviewItem > p {
+.reviewsDisplay > .reviewItem > p {
   max-width: 150px;
 }
 
 .overview p {
   margin-left: 10px;
   max-width: 40%;
+}
+
+.showCommentsPopover {
+  position: relative;
+  background-color: black !IMPORTANT;
+  top: 20% !IMPORTANT;
+  left: 20% !IMPORTANT;
+  width: 60%;
+  padding: 20px;
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
+  font-family: 'Raleway', sans-serif !IMPORTANT;
+  font-size: 15px;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.closeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  color: white;
+  background: transparent;
+  border-radius: 50%;
+}
+
+.commentsDialogContent > .reviewItem {
+  margin: 5px 0;
+  padding: 5px;
+  background: rgb(20, 20, 20);
 }

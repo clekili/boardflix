@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewItem from './review_item';
 import CommentFormContainer from './comment_form_container';
+import CommentsDialog from './comments_dialog';
 
 class Details extends React.Component {
   constructor(props){
@@ -23,7 +24,7 @@ class Details extends React.Component {
                                 comment={comment}/>
                   ))}
                 </div>
-                <button>Read more...</button>
+                <CommentsDialog comments={this.props.comments}/>
               </div>
               <CommentFormContainer video={this.props.video}/>
             </div>
