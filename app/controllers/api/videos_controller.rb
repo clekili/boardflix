@@ -6,7 +6,7 @@ class Api::VideosController < ApplicationController
       category = Category.find_by(name: category_name)
       @videos = category.videos.includes(:comments, :categories)
     elsif(search_string && !search_string.empty?)
-      @videos = Video.where('name ILIKE ?', "%#{search_string}%").includes(:comments, :categories).all
+      @videos = Video.where('name ILIKE ?', "%#{search_string}%").includes(:comments, :categories)
     else
       @videos = Video.includes(:comments, :categories).all
     end
