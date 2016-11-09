@@ -15,12 +15,6 @@ const Root = ({ store }) => {
       replace('/welcome');
   };
 
-  const _redirectIfLoggedIn = (nextState, replace) => {
-    let session = store.getState().session;
-    if(session.currentUser)
-      replace('/');
-  };
-
   return (
     <Provider store={store}>
         <Router history={hashHistory}>
@@ -29,16 +23,13 @@ const Root = ({ store }) => {
               component={VideoIndexContainer}
               onEnter={_redirectIfLoggedOut}/>
             <Route path='welcome' component={Splash}/>
-            <Route path='users/:id' component={UserPageContainer}/>
+            <Route path='users/:id'
+                   component={UserPageContainer}
+                   onEnter={_redirectIfLoggedOut}/>
             <Route
               path=':category/videos/:id'
-              component={VideoPlayerContainer}/>
-            <Route path="/login"
-                   onEnter={_redirectIfLoggedIn}
-                   component={SessionFormContainer} />
-            <Route path="/signup"
-                   onEnter={_redirectIfLoggedIn}
-                   component={SessionFormContainer} />
+              component={VideoPlayerContainer}
+              onEnter={_redirectIfLoggedOut}/>
           </Route>
         </Router>
     </Provider>
