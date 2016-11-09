@@ -14,11 +14,15 @@ class DeleteButton extends React.Component {
 
   render (){
   if(this.props.isAdmin){
-    return (<button
+    return (
+          <div>
+            <button
               className="deleteVideo"
               onClick={() => this.props.deleteVideo(this.props.video.id)}>
               Delete
-            </button>);
+            </button>
+          </div>
+          );
     }
     return null;
   }

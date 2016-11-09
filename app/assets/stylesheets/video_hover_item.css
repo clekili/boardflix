@@ -3,7 +3,7 @@
 }
 
 .playLink, .playLinkImg {
-  width: 64px;
+  width: 50%;
   opacity: 0.8;
   padding-top: 5%;
   margin: 0 auto;
@@ -15,7 +15,7 @@
 }
 
 .videoHoverCover button:focus {
-  outline:0;
+  outline: 0;
 }
 
 .detailsButton > img {
@@ -39,14 +39,8 @@
   display: inline-block;
 }
 
-.videoHoverCover {
-  display: relative;
-}
-
 .detailsButton {
-  position:absolute;
-  left: 0;
-  bottom: 5px;
+  margin-bottom: 1%;
   height: 20px;
   width: 100%;
   background: black;

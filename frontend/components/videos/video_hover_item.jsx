@@ -21,10 +21,10 @@ class VideoHoverItem extends React.Component {
           <img
             src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478471722/play_da9o38.png" className="playLinkImg" alt="play" />
         </Link>
-        <br/>
-        <VideoDialogContainer video={this.props.video}/>
-        <DeleteButtonContainer video={this.props.video}/>
-        <br/>
+        <div className='adminButtons'>
+          <VideoDialogContainer video={this.props.video}/>
+          <DeleteButtonContainer video={this.props.video}/>
+        </div>
         <VideoPopover video={this.props.video}/>
       </div>
     );
