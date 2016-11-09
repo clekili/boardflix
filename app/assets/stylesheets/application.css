@@ -23,6 +23,13 @@ body {
   color: #999;
 }
 
+#root, #app {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
 .clearfix:after {
      visibility: hidden;
      display: block;

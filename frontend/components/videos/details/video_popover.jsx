@@ -23,25 +23,17 @@ class VideoPopover extends React.Component {
   }
 
   close(){
-    this.state.parentEl.animate({
-      height: this.state.parentHeight
-    }, 400, ()=>{});
-
+    $('.sliderPopper').slideUp(400, () => $('.sliderPopper').remove());
     this.setState({show: false});
   }
 
   open(e){
     e.preventDefault();
-    let slider = $(e.currentTarget).parentsUntil(".slick-slider");
-    let $slider = $(slider[slider.length - 1]);
-    let parentHeight = $slider.height();
-    $slider.animate({
-      height: parentHeight + 300
-    }, 400, ()=>{});
+    let $carousel = $($(e.currentTarget).closest(".carouselContainer")[0]);
+    $("<div class='sliderPopper'/>").appendTo($carousel).slideDown(400);
 
-    let parentEl = $slider;
-    let anchorEl = slider[3];
-    this.setState({show: true, anchorEl, parentEl, parentHeight});
+    let anchorEl = $carousel.children()[0];
+    this.setState({show: true, anchorEl});
   }
 
   show(content){

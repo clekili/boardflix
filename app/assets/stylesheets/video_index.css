@@ -22,11 +22,11 @@
 }
 
 .slick-slide:hover .videoHoverCover{
-  display: block;
+  opacity: 1;
 }
 
 .videoHoverCover{
-  display:none;
+  opacity: 0;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
   top: 0;
