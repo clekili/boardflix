@@ -10,7 +10,7 @@
     position: relative;
 
     display: block;
-    overflow-x: hidden;
+    overflow: hidden;
 
     margin: 0;
     padding: 20px 0;
