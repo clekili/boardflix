@@ -49,7 +49,7 @@ class SessionButton extends React.Component {
         <div className="sessionBtn">
           <button onClick={this.openUserMenu}>
             <img
-              src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478037453/dude_omkwgb.png"
+              src={this.props.avatar}
             />
           </button>
           <Popover

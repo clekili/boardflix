@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     loggedIn: currentUser ? true : false,
     isAdmin: currentUser ? currentUser.isAdmin : false,
-    userId: currentUser? currentUser.id : null
+    userId: currentUser ? currentUser.id : null,
+    avatar: currentUser ? currentUser.image : null
   };
 };
 

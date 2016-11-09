@@ -8,7 +8,7 @@ class UserPage extends React.Component {
       user: {
             id: props.user.id,
             username: props.user.username,
-            password: ""
+            password: "",
       },
       usernameEditMode: false,
       passwordEditMode: false
