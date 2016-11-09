@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -60,7 +60,8 @@ class SessionButton extends React.Component {
             onRequestClose={this.closeUserMenu}
           >
             <Menu>
-              <MenuItem primaryText="Profile" />
+              <MenuItem primaryText="Profile"
+                        onTouchTap={(e) => hashHistory.push(`users/${this.props.userId}`)}/>
               <MenuItem primaryText="Sign out" onTouchTap={this.handleLogout} />
             </Menu>
           </Popover>

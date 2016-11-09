@@ -1,0 +1,46 @@
+.userProfile{
+  margin-top: 100px;
+}
+
+.userProfile h1 {
+  margin-left: 20%;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.userProfile label {
+  margin: 10px;
+}
+
+.userProfile button, .userProfile a {
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.userField {
+  border: none;
+  padding: 0;
+}
+
+.userProfile button:hover, .userProfile a:hover{
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.profileSlice > * {
+  width: 20%;
+  background: transparent;
+  color: inherit;
+}
+
+.profileSlice {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+}

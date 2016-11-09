@@ -6,6 +6,7 @@ import Splash from './splash/splash';
 import VideoIndexContainer from './videos/video_index_container';
 import SessionFormContainer from './navbar/session/session_form_container';
 import VideoPlayerContainer from './videos/video_player_container';
+import UserPageContainer from './user/user_page_container';
 
 const Root = ({ store }) => {
   const _redirectIfLoggedOut = (nextState, replace) => {
@@ -28,6 +29,7 @@ const Root = ({ store }) => {
               component={VideoIndexContainer}
               onEnter={_redirectIfLoggedOut}/>
             <Route path='welcome' component={Splash}/>
+            <Route path='users/:id' component={UserPageContainer}/>
             <Route
               path=':category/videos/:id'
               component={VideoPlayerContainer}/>
