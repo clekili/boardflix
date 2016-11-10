@@ -39,12 +39,6 @@ class SessionForm extends React.Component {
       this.setState(this.state);
     };
   }
-  //
-  // setImage(e){
-  //   e.preventDefault();
-  //   this.state.user.image = e.target.src;
-  //   this.setState(this.state);
-  // }
 
   handleSubmit(e){
     e.preventDefault();

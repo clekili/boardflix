@@ -27,8 +27,8 @@ class SessionButton extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  openLoginDialog(e){
-    this.setState({show: true});
+  openLoginDialog(dialogType){
+    return e => this.setState({dialogType: dialogType, show: true});
   }
 
   closeLoginDialog(e){
@@ -64,13 +64,30 @@ class SessionButton extends React.Component {
           </Popover>
         </div>
       );
-    } else {
+    } else if(this.props.onlySignup){
       return (
         <div className="sessionBtn">
           <RaisedButton
-            onClick={this.openLoginDialog}
-            label="Sign Up"
+            onClick={this.openLoginDialog('signup')}
+            label="Get Started"
           />
+        </div>
+      );
+    } else {
+      return (
+        <div className='sessionButtonPanel'>
+          <div className="sessionBtn">
+            <RaisedButton
+              onClick={this.openLoginDialog('login')}
+              label="Login"
+              />
+          </div>
+          <div className="sessionBtn">
+            <RaisedButton
+              onClick={this.openLoginDialog('signup')}
+              label="Sign Up"
+            />
+          </div>
         </div>
       );
     }
@@ -101,7 +118,7 @@ class SessionButton extends React.Component {
             onRequestClose={this.closeLoginDialog}
             contentStyle={dialogStyle}
           >
-            <SessionFormContainer/>
+            <SessionFormContainer dialogType={this.state.dialogType}/>
           </Dialog>
         </div>
       </div>

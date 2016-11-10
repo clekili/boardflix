@@ -9,7 +9,7 @@ const MainContent = () => (
       <p>Share good times with our community.</p>
       <p>Get prepared for the upcoming session.</p>
       <div className="newAccount">
-        <SessionButton/>
+        <SessionButton onlySignup={true}/>
       </div>
   </div>
 );

@@ -25,9 +25,9 @@
   margin-right: 15px;
 }
 
-.sessionBtn > button {
-  margin: 0 5px;
-  cursor: pointer;
+.sessionBtn {
+  display: inline-block;
+  margin: 5px;
 }
 
 .sessionBtn:hover > button {
