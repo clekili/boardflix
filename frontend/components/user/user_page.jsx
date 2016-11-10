@@ -1,5 +1,6 @@
 import React from 'react';
 import UserImage from './user_image';
+import UserReviews from './user_reviews';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -19,6 +20,10 @@ class UserPage extends React.Component {
     this.submit = this.submit.bind(this);
     this.toggleEditMode = this.toggleEditMode.bind(this);
     this.setImage = this.setImage.bind(this);
+  }
+
+  componentWillMount(){
+    this.props.fetchComments();
   }
 
   setImage(e){
@@ -135,6 +140,7 @@ class UserPage extends React.Component {
           {this.renderUsernameField()}
           {this.renderPasswordField()}
         </div>
+        <UserReviews comments={this.props.comments}/>
       </div>
     );
   }

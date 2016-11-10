@@ -77,16 +77,16 @@
 .changeImageBtn {
   border-radius: 50%;
   border: none;
-  opacity: 0;
-  left: 0;
+  opacity: 0.5;
+  right: 0;
   bottom: 0;
   position: absolute;
   cursor: pointer;
 }
 
 .changeImageBtn img {
-  height: 30px;
-  opacity: 0;
+  height: 25px;
+  opacity: 0.3;
   border-radius: 50%;
   background-color: white;
 }
@@ -103,4 +103,23 @@
 
 .userImagePopover{
   max-width: 300;
+}
+
+.userReviews{
+  padding-top: 70px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.userReviews h2{
+  font-size: 20px;
+}
+
+.userReviews h3{
+  font-weight: 15px;
+  margin: 5px;
+}
+
+.userReviews .review {
+  margin: 30px;
 }
