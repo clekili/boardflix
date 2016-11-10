@@ -14,8 +14,7 @@ const VideosReducer = (oldState = {}, action) => {
         Object.keys(action.videos).forEach( cat => {
           found = merge(found, action.videos[cat]);
         });
-        if( !$.isEmptyObject(found) )
-          newState = merge({}, newState, { "Search Results": found});
+        newState = merge({}, newState, { "Search Results": found});
         return newState;
       }
       return merge({}, action.videos);

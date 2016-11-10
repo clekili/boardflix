@@ -50,3 +50,17 @@
 .videoTitle {
   text-align: center;
 }
+
+.videoCarousel {
+  margin-left: 20px;
+}
+
+.notFound {
+  display: block;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  background-color: #8c8c8c;
+  color: black;
+  border-radius: 10px;
+}
