@@ -5,14 +5,14 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const IMAGES = [
-  'https://goo.gl/o36l3O',
-  'https://goo.gl/YoJmXf',
-  'https://goo.gl/LZqdRo',
-  'https://goo.gl/0Q86qw',
-  'https://goo.gl/ptacu2',
-  'https://goo.gl/JllrjK',
-  'https://goo.gl/YNmMm1',
-  'https://goo.gl/aJoJsr'
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude1.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude2.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude3.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude4.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude5.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478734419/dudes/dude6.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478734420/dudes/dude7.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478734420/dudes/dude8.png'
 ];
 
 class UserImage extends React.Component {
