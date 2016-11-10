@@ -40,11 +40,11 @@
   color: white;
   text-align: center;
   height: 100%;
+  padding: 10% 0;
 }
 
 .mainContent > h2 {
   color: rgb(150,0,20);
-  padding-top: 10%;
   text-align: center;
   padding-bottom: 30px;
   font-size: 30px;
@@ -74,3 +74,11 @@
 .footer > p {
   margin: 20px;
 }
+
+.footer a {
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+}
+.footer a {color:#b3b3b3;}
+.footer a:visited {color:#b3b3b3;}
+.footer a:hover {color:white;}
