@@ -40,12 +40,16 @@ class Api::VideosController < ApplicationController
     parameters.delete(:category);
     @video = Video.find_by(id: parameters[:id])
     parameters.delete(:id);
-    if category && @video.update(parameters)
+    if category && @video && @video.update(parameters)
       Categorization.find_by(video_id: @video.id).destroy
       Categorization.create(video_id: @video.id, category_id: category.id);
       render :show
     else
-      errors = @video.errors.full_messages
+      if @video
+        errors = @video.errors.full_messages
+      else
+        errors.push("Couldn't find video!")
+      end
       errors.push("Category can't be empty!") unless category
       render json: errors, status: 422
     end
@@ -54,10 +58,10 @@ class Api::VideosController < ApplicationController
   def destroy
     @video = Video.find_by(id: params[:id])
 
-    if @video.destroy
+    if @video && @video.destroy
       render :show
     else
-      render json: @video.errors.full_messages, status: 422
+      render json: 'Error deleting video', status: 422
     end
   end
 
