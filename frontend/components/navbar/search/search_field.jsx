@@ -42,7 +42,7 @@ class SearchField extends React.Component {
                 </MuiThemeProvider>
                 <img
                   className="searchIcon"
-                  src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478468745/search_g7zx4p.png"
+                  src="https://res.cloudinary.com/ddqzltwv6/image/upload/v1478468745/search_g7zx4p.png"
                 />
               </div>);
     }

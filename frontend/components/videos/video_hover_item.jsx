@@ -19,7 +19,7 @@ class VideoHoverItem extends React.Component {
           className="playLink"
           to={`${this.props.video.category}/videos/${this.props.video.id}`}>
           <img
-            src="http://res.cloudinary.com/ddqzltwv6/image/upload/v1478471722/play_da9o38.png" className="playLinkImg" alt="play" />
+            src="https://res.cloudinary.com/ddqzltwv6/image/upload/v1478471722/play_da9o38.png" className="playLinkImg" alt="play" />
         </Link>
         <div className='adminButtons'>
           <VideoDialogContainer video={this.props.video}/>

@@ -75,7 +75,7 @@ class VideoPopover extends React.Component {
           <button
             onClick={this.open}
             className='detailsButton'>
-            <img src="http://res.cloudinary.com/ddqzltwv6/image/upload/c_scale,h_20/v1478506717/downArrow_bu2x30.png"/>
+            <img src="https://res.cloudinary.com/ddqzltwv6/image/upload/c_scale,h_20/v1478506717/downArrow_bu2x30.png"/>
           </button>
           <Popover
             className='detailsPopover'
