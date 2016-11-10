@@ -57,8 +57,14 @@
 }
 
 .selectableImage {
-  float: left;
   height: 80px;
+  cursor: pointer;
+}
+.imageContainer{
+  float: left;
+  width: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 .userImage:hover > button > img{
@@ -102,7 +108,7 @@
 }
 
 .userImagePopover{
-  max-width: 300;
+  max-width: 320px;
 }
 
 .userReviews{

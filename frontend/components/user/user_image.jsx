@@ -12,7 +12,11 @@ const IMAGES = [
   'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude5.png',
   'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478734419/dudes/dude6.png',
   'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478734420/dudes/dude7.png',
-  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478734420/dudes/dude8.png'
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478764554/dudes/dude8.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478764552/dudes/dude9.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478764552/dudes/dude10.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478764552/dudes/dude11.png',
+  'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478765833/dudes/dude12.png'
 ];
 
 class UserImage extends React.Component {
@@ -57,10 +61,11 @@ class UserImage extends React.Component {
             onRequestClose={this.toggleImages}
           >
             {IMAGES.map( (picture, idx) => (
-              <img  key={idx}
-                    className='selectableImage'
+              <div className='imageContainer' key={idx}>
+              <img  className='selectableImage'
                     src={picture}
-                    onClick={this.props.setImage}/>))}
+                    onClick={this.props.setImage}/>
+              </div>))}
           </Popover>
       </MuiThemeProvider>
       </div>
