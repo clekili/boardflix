@@ -3,6 +3,7 @@ import {Link, hashHistory} from 'react-router';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import UserImage from '../../user/user_image';
 
 
 const buttonStyle = {
@@ -26,6 +27,7 @@ class SessionForm extends React.Component {
     this.changeFormType = this.changeFormType.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    // this.setImage = this.setImage.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleAdminLogin = this.handleAdminLogin.bind(this);
   }
@@ -37,6 +39,12 @@ class SessionForm extends React.Component {
       this.setState(this.state);
     };
   }
+  //
+  // setImage(e){
+  //   e.preventDefault();
+  //   this.state.user.image = e.target.src;
+  //   this.setState(this.state);
+  // }
 
   handleSubmit(e){
     e.preventDefault();

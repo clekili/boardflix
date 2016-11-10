@@ -1,9 +1,10 @@
 .userProfile{
   margin-top: 100px;
+  text-align: center;
+  justify-content: center;
 }
 
 .userProfile h1 {
-  margin-left: 20%;
   font-size: 30px;
   padding: 20px;
 }
@@ -17,11 +18,18 @@
   cursor: pointer;
   opacity: 0.7;
   text-align: center;
+  width: 30%;
 }
 
 .userField {
   border: none;
   padding: 0;
+  width: 50%;
+}
+
+.profileSlice input {
+  border-bottom: 1px solid;
+  margin: 0 10px;
 }
 
 .userProfile button:hover, .userProfile a:hover{
@@ -32,7 +40,6 @@
 }
 
 .profileSlice > * {
-  width: 20%;
   background: transparent;
   color: inherit;
 }
@@ -43,4 +50,57 @@
   flex-direction: row;
   justify-content: center;
   align-content: space-between;
+}
+
+.userImage > img {
+  height: 128px;
+}
+
+.selectableImage {
+  float: left;
+  height: 80px;
+}
+
+.userImage:hover > button > img{
+  opacity: 0.8;
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+}
+
+.userImage {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.changeImageBtn {
+  border-radius: 50%;
+  border: none;
+  opacity: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.changeImageBtn img {
+  height: 30px;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.changeImageBtn:focus {
+  outline: 0;
+}
+
+.userFields {
+  display: inline-block;
+  margin-top: 60px;
+  width: 40%;
+}
+
+.userImagePopover{
+  max-width: 300;
 }

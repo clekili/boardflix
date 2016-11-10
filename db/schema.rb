@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20161109195514) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.boolean  "is_admin",        default: false
-    t.string   "image",           default: "https://goo.gl/OYFUI1"
+    t.string   "image",           default: "https://goo.gl/0Q86qw"
   end
 
   create_table "videos", force: :cascade do |t|

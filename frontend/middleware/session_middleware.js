@@ -12,7 +12,7 @@ export default ({ getState, dispatch }) => next => action => {
   };
   const updateSuccessCallback = user =>{
     dispatch(receiveCurrentUser(user));
-    hashHistory.push(`users/${user.id}`);
+    hashHistory.replace(`users/${user.id}`);
   };
   const errorCallback = err => dispatch(receiveErrors(err.responseJSON));
 

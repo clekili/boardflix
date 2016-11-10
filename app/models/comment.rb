@@ -22,11 +22,9 @@ class Comment < ActiveRecord::Base
   before_destroy :update_average_rating
 
   def update_average_rating
-    p 'updating video'
     video = self.video
     comments = video.comments
     rating = comments.inject(0){ |sum, el| sum + el.rating}.to_f / comments.size
     video.update(rating: rating.round);
-    p video.rating
   end
 end

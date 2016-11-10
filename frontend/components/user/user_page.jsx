@@ -1,4 +1,5 @@
 import React from 'react';
+import UserImage from './user_image';
 
 class UserPage extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class UserPage extends React.Component {
       user: {
             id: props.user.id,
             username: props.user.username,
-            password: "",
+            image: props.user.image
       },
       usernameEditMode: false,
       passwordEditMode: false
@@ -17,6 +18,14 @@ class UserPage extends React.Component {
     this.update = this.update.bind(this);
     this.submit = this.submit.bind(this);
     this.toggleEditMode = this.toggleEditMode.bind(this);
+    this.setImage = this.setImage.bind(this);
+  }
+
+  setImage(e){
+    e.preventDefault();
+    this.state.user.image = e.target.src;
+    this.setState(this.state);
+    this.props.updateUser(this.state.user);
   }
 
   componentWillReceiveProps(nextProps){
@@ -24,7 +33,7 @@ class UserPage extends React.Component {
       user: {
             id: nextProps.user.id,
             username: nextProps.user.username,
-            password: ""
+            image: nextProps.user.image
       },
       usernameEditMode: false,
       passwordEditMode: false
@@ -119,9 +128,13 @@ class UserPage extends React.Component {
     return (
       <div className='userProfile'>
         <h1>My Profile</h1>
-        {this.renderErrors()}
-        {this.renderUsernameField()}
-        {this.renderPasswordField()}
+        <UserImage user={this.state.user}
+                   setImage={this.setImage}/>
+        <div className='userFields'>
+          {this.renderErrors()}
+          {this.renderUsernameField()}
+          {this.renderPasswordField()}
+        </div>
       </div>
     );
   }
