@@ -47,7 +47,7 @@ class UserImage extends React.Component {
              onClick={ this.toggleImages }/>
         <button className="changeImageBtn"
                 onClick={ this.toggleImages }>
-                <img src='https://goo.gl/7Ha0Ob'/>
+                <img src='https://goo.gl/PkuzKL'/>
         </button>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Popover

@@ -19,7 +19,7 @@ class DeleteButton extends React.Component {
             <button
               className="deleteVideo"
               onClick={() => this.props.deleteVideo(this.props.video.id)}>
-              Delete
+              <img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478800819/delete_acp46l.png'/>
             </button>
           </div>
           );

@@ -62,17 +62,19 @@ class VideoDialog extends React.Component {
   }
 
   render(){
-    let btnText, dialogBtn;
+    let btnContent, dialogBtn, btnText;
     if(this.props.dialogType === "create"){
-      btnText = "Create Video";
+      btnContent = "Create Video";
+      btnText = 'Create Video';
       dialogBtn =  <RaisedButton
-                          label={btnText}
+                          label={btnContent}
                           onTouchTap={this.handleOpen}
                       />;
       }else {
-      btnText = "Edit";
+      btnContent = <img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478728611/edit_vqbxsc.png'/>;
+      btnText = "Edit Video";
       dialogBtn = <button onClick={this.handleOpen}>
-                      {btnText}
+                      {btnContent}
                   </button>;
       }
     if(this.props.isAdmin){

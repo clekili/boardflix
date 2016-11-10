@@ -2,16 +2,25 @@
   margin-top: 10%;
 }
 
-.playLink, .playLinkImg {
-  width: 50%;
-  opacity: 0.8;
-  padding-top: 5%;
+.playLink{
+  width: 20%;
   margin: 0 auto;
+}
+
+.playLinkImg {
+  width: 100%;
+  opacity: 0.3;
+}
+
+.playLinkImg:hover {
+  opacity: 0.8;
+  transition: all .3s ease-in-out;
 }
 
 .videoHoverCover button {
   cursor: pointer;
   border: 0;
+  border-radius: 20%;
 }
 
 .videoHoverCover button:focus {
@@ -19,9 +28,14 @@
 }
 
 .detailsButton > img {
+  width: 10%;
   margin: 0 auto;
+}
+
+.videoHoverCover button > img {
   transition: all .3s ease-in-out;
 }
+
 .videoHoverCover button:hover > img {
   transform: scale(1.2);
   opacity: 1;
@@ -32,11 +46,18 @@
 }
 
 .deleteVideo {
+  margin-left: 5px;
   background-color: #B71C1C;
 }
 
-.videoHoverCover > div {
-  display: inline-block;
+.adminButtons {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.adminButtons img {
+  height: 24px;
 }
 
 .detailsButton {
