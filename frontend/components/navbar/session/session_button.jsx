@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SessionFormContainer from './session_form_container';
 import Dialog from 'material-ui/Dialog';
 import Popover from 'material-ui/Popover';
@@ -96,19 +93,17 @@ class SessionButton extends React.Component {
   render() {
     return (
       <div className="session">
-        <MuiThemeProvider   muiTheme={getMuiTheme(darkBaseTheme)}>
-          <div className="session">
-            {this.button()}
-            <Dialog
-              open={this.state.show}
-              modal={false}
-              onRequestClose={this.closeLoginDialog}
-              contentStyle={dialogStyle}
-            >
-              <SessionFormContainer/>
-            </Dialog>
-          </div>
-        </MuiThemeProvider>
+        <div className="session">
+          {this.button()}
+          <Dialog
+            open={this.state.show}
+            modal={false}
+            onRequestClose={this.closeLoginDialog}
+            contentStyle={dialogStyle}
+          >
+            <SessionFormContainer/>
+          </Dialog>
+        </div>
       </div>
     );
   }

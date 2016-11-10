@@ -1,8 +1,5 @@
 import React from 'react';
 import {Popover, PopoverAnimationVertical} from 'material-ui/Popover';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const IMAGES = [
   'https://res.cloudinary.com/ddqzltwv6/image/upload/v1478732874/dudes/dude1.png',
@@ -49,7 +46,6 @@ class UserImage extends React.Component {
                 onClick={ this.toggleImages }>
                 <img src='https://goo.gl/PkuzKL'/>
         </button>
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Popover
             className='userImagePopover'
             open={this.state.displayImages}
@@ -67,7 +63,6 @@ class UserImage extends React.Component {
                     onClick={this.props.setImage}/>
               </div>))}
           </Popover>
-      </MuiThemeProvider>
       </div>
     );
   }

@@ -1,8 +1,5 @@
 import React from 'react';
 import {Popover, PopoverAnimationVertical} from 'material-ui/Popover';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DetailsContainer from './details_container';
 import Overview from './overview';
 
@@ -70,8 +67,7 @@ class VideoPopover extends React.Component {
 
     return (
       <div className='videoPopover'>
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-          <div>
+        <div>
           <button
             onClick={this.open}
             className='detailsButton'>
@@ -95,8 +91,7 @@ class VideoPopover extends React.Component {
             {content}
             {this.renderButtons()}
           </Popover>
-          </div>
-        </MuiThemeProvider>
+        </div>
       </div>
     );
   }
