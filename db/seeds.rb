@@ -7,7 +7,8 @@ User.create(username: 'moran', password: 'password')
 Category.create([
   { name: 'Snowboard' },
   { name: 'Skateboard' },
-  { name: 'Surf' }])
+  { name: 'Surf' },
+  { name: 'Longboard'}])
 
 #### SNOWBOARD
 
@@ -156,17 +157,69 @@ Video.create(
 Categorization.create(video_id: Video.last.id, category_id: 3)
 
 Video.create(
+  name: 'The SUP',
+  youtube_id: 'OQMxU34UHfM',
+  description: "Award-winning director Johnny DeCesare presents the most progressive stand up paddle movie ever made. Follow Kai Lenny and the best stand up paddlers as they travel the globe chasing the world´s most perfect waves and pushing their sport forward.")
+Categorization.create(video_id: Video.last.id, category_id: 3)
+
+Video.create(
+  name: 'Distance Between Dreams',
+  youtube_id: 'FtPt0YSWjCw',
+  description: "In Distance Between Dreams, the most historic year in big wave surfing comes to life through the eyes of iconic surferIan Walsh, as he sets mind and body in motion to redefine the upper limits of what’s considered ‘rideable.' With massive El Niño powered swells building across the Pacific, Ian, Shaun, D.K. and Luke Walsh band together in a way that only brothers can to progress surfing to unimaginable heights. Coming December 2016. http://DistanceBetweenDreams.com")
+Categorization.create(video_id: Video.last.id, category_id: 3)
+
+Video.create(
+  name: 'Moments',
+  youtube_id: 'R2hLKOgcCEE',
+  description: "Moments is the 2011 Quiksilver Surf Team Movie starring Dane Reynolds, Craig Anderson, Jeremy Flores, Clay Marzo and Kelly Slater and featuring Mark Healey, Mikey Wright, Reef McIntosh, Ry Craike, Fred Patacchia, Dede Suryana, Leonardo Fioravanti, Jack Robinson, Kanoa Igarashi, Miky Picon, Aritz Aranburu, Matt Banting, Alain Riou. More at www.quiksilver.com.")
+Categorization.create(video_id: Video.last.id, category_id: 3)
+
+Video.create(
   name: 'Little Victories',
   youtube_id: 'sJmYTYhqgXo',
   description: "'Little Victories' is a 30-minute surf film by Perry Gershkow about venturing all along the California coastline in search of wave variety, terrain, and creating little victories along the way.")
 Categorization.create(video_id: Video.last.id, category_id: 3)
 
+### LONGBOARD
+
 Video.create(
-  name: '',
-  youtube_id: '',
-  description: ''
-)
-Categorization.create(video_id: Video.last.id, category_id: 3)
+  name: 'Velocity',
+  youtube_id: 'xQTBUD9lySM',
+  description: 'A  full 10 min film with parts including some of the gnarliest east coast skaters. crazytac0s biggest project yet.')
+Categorization.create(video_id: Video.last.id, category_id: 4)
+
+Video.create(
+  name: 'Seasons',
+  youtube_id: 'FSvPrcXXlfg',
+  description: 'featuring riding by Dan Fontz, John Kreutter, Alex Mckenzie, & Jon Sevik. filmed throughout MD, VA, DC, and PA. Ive been pretty busy lately with school but when I got out with the camera, this went down over the seasons. recently this past fall was very cold in Philly so a lot of skating went down, mad photos; but not as much filming. I had the opportunity to film some of the best skaters on the east coast, explore once in a life time road trips and views, film and shoot for top skateboard companies, budweisers made in america, the glitch mob on halloween, and meeting some awesome people along the way. follow my adventures on my instagram @jonsevik.')
+Categorization.create(video_id: Video.last.id, category_id: 4)
+
+Video.create(
+  name: 'I Had A Dream',
+  youtube_id: 'fPk4KGJVAUg',
+  description: "Directed/Filmed/Edited : Charles Ouimet\nRider : Francis Boileau\nBoards : Restless WIM, Restless Astrohican\nFilmed with the Panasonic GH4, 12-35 F2.8 , 25mm F1.4 , 7.5mm F3.5, 45-175 F4")
+Categorization.create(video_id: Video.last.id, category_id: 4)
+
+Video.create(
+  name: 'Second Nature',
+  youtube_id: '1nmpNXOMZyQ',
+  description: 'In an exploration of the abstract and the extreme, Second Nature is an examination of the natural boundaries of the human body. Noah Sakamoto, Patrick Rizzo and J.M. Duran star as the test subjects as they wield skateboards and blue suits to race down the roads of the High Sierras in California.')
+Categorization.create(video_id: Video.last.id, category_id: 4)
+
+Video.create(
+  name: 'The Rush',
+  youtube_id: '3l34f5wSH3Y',
+  description: 'We have been working on this "short film" for a few months and hope you guys enjoy it! We will be making shorter edits through out the summer.')
+Categorization.create(video_id: Video.last.id, category_id: 4)
+
+Video.create(
+  name: 'Madrid Longboard',
+  youtube_id: 'coyi-iubCJo',
+  description: "Surfing the city.\nRiders:\nRa http://ralongboard.blogspot.com/\nNacho http://caribbeansportshop.blogspot.com")
+Categorization.create(video_id: Video.last.id, category_id: 4)
+
+
+### COMMENTS
 
 Video.all.each do |video|
   User.all.each do |user|
