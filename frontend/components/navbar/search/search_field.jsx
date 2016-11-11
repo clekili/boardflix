@@ -34,6 +34,7 @@ class SearchField extends React.Component {
                   dataSource={this.props.videoNames}
                   onUpdateInput={this.handleChange}
                   underlineFocusStyle={styles.underlineStyle}
+                  maxSearchResults={4}
                 />
                 <img
                   className="searchIcon"
