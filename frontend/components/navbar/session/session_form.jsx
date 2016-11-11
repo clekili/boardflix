@@ -27,9 +27,9 @@ class SessionForm extends React.Component {
     this.changeFormType = this.changeFormType.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    // this.setImage = this.setImage.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleAdminLogin = this.handleAdminLogin.bind(this);
+    this.enterDetailsAndSubmit = this.enterDetailsAndSubmit.bind(this);
   }
 
   update(field){
@@ -48,22 +48,37 @@ class SessionForm extends React.Component {
       this.props.signup(this.state.user);
   }
 
+  enterDetailsAndSubmit(username, password){
+    let $unameField = $('.usernameField input');
+    let $unamePlaceholder = $('.usernameField label:first-of-type');
+    let $pwdField = $('.passwordField input');
+    let $pwdPlaceholder = $('.passwordField label:first-of-type');
+
+    this.fillField(username, $unameField, $unamePlaceholder);
+    setTimeout( () => this.fillField(password, $pwdField, $pwdPlaceholder), (username.length * 150));
+    setTimeout( () => this.props.login({username, password}), ((username.length + password.length) * 160));
+  }
+
+  fillField(value, $field, $placeholder){
+    let i = 0;
+    $placeholder.remove();
+
+    var timer = setInterval( () => {
+      $field.val($field.val() + value[i]);
+      i++;
+      if(i >= value.length)
+        clearInterval(timer);
+    },150);
+  }
+
   handleGuestLogin(e){
     e.preventDefault();
-    const user = {
-      username: 'guest',
-      password: 'password'
-    };
-    this.props.login(user);
+    this.enterDetailsAndSubmit('guest', 'password');
   }
 
   handleAdminLogin(e){
     e.preventDefault();
-    const user = {
-      username: 'admin',
-      password: 'password'
-    };
-    this.props.login(user);
+    this.enterDetailsAndSubmit('admin', 'password');
   }
 
   changeFormType(){
@@ -111,12 +126,14 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className='sessionInputFields'>
               <TextField
+                  className="usernameField"
                   hintText="Username"
                   floatingLabelText="Username"
                   value={this.state.user.username}
                   onChange={this.update('username')}
               />
               <TextField
+                  className="passwordField"
                   hintText="Password"
                   floatingLabelText="Password"
                   type="password"
