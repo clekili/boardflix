@@ -4,8 +4,6 @@ import configureStore from './store/store';
 import Root from './components/root';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-// FOR TESTING
-import * as CommentActions from './actions/comment_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   injectTapEventPlugin();
@@ -20,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 
-  // TESTING
-  window.store = store;
-  window.commentActions = CommentActions;
+  console.log('Hi there!');
+  console.log('Are you here for the source code?');
+  console.log("Don't waste your time digging into minified code.");
+  console.log("Just shoot me an email at clekili@gmail.com. I'll send you the most up to date version.");
+  console.log("Stay awesome, cheers");
+  console.log('Can Lekili');
 });
