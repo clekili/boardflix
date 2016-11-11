@@ -20,13 +20,11 @@ class VideoIndex extends React.Component {
         videos.push(this.props.videos[cat][id]);
       });
       return (
-        <li key={cat}>
           <VideoCarousel
             category={cat}
             videos={videos}
             infinite={infinite}
           />
-        </li>
       );
     }
   }
@@ -45,10 +43,9 @@ class VideoIndex extends React.Component {
     return (
       <div className="videoIndex">
         <ul>
-          {this.getSearchResults()}
+          <li key='search'>{this.getSearchResults()}</li>
           {this.props.categories.map( category => {
-            if(category !== 'errors')
-              return this.buildCarousel(category);
+              return <li key={category}>{this.buildCarousel(category)}</li>;
           })}
         </ul>
       </div>
