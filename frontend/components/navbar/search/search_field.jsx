@@ -1,11 +1,12 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
+import AutoComplete from 'material-ui/AutoComplete';
 import { grey50 } from 'material-ui/styles/colors';
 
 const styles = {
   underlineStyle: {
     borderColor: grey50
-  },
+  }
 };
 
 class SearchField extends React.Component {
@@ -19,22 +20,21 @@ class SearchField extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e){
-    e.preventDefault();
-    let val = e.target.value;
-    this.setState({searchString: val});
-    this.props.find(val);
+  handleChange(text){
+    this.setState({searchString: text});
+    this.props.find(text);
   }
 
   render() {
     if(this.props.loggedIn){
     return ( <div className='searchField'>
-                  <TextField
-                    hintText="Search..."
-                    underlineFocusStyle={styles.underlineStyle}
-                    onChange={this.handleChange}
-                    value={this.state.searchString}
-                  />
+                <AutoComplete
+                  hintText="Search..."
+                  filter={AutoComplete.caseInsensitiveFilter}
+                  dataSource={this.props.videoNames}
+                  onUpdateInput={this.handleChange}
+                  underlineFocusStyle={styles.underlineStyle}
+                />
                 <img
                   className="searchIcon"
                   src="https://res.cloudinary.com/ddqzltwv6/image/upload/v1478468745/search_g7zx4p.png"
