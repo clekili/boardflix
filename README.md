@@ -1,27 +1,29 @@
+[boardflix]: http://www.boardflix.co
+
 # Boardflix
 
 Boardflix is a full-stack web application provides a collection of videos on various board sports. Inspired by Netflix. Stack used in crafting Boardflix includes Ruby on Rails backend, PostgreSQL db and React/Redux frontend.
 
-Feel free to browse at <a src='http://www.boardflix.co'>Boardflix</a>.
+Feel free to browse at [Boardflix][boardflix].
 
 <img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478890830/splash_khmvhr.png' width='100%'/>
 
 
 ## Features & Implementation
 
-* [Videos](### Videos)
+* [Videos](#videos)
  - Watch
  - Create, Update, Delete (admin only)
  - See average rating for videos
  - See view counts of videos
-* [Comments](### Comments)
+* [Comments](#comments)
  - Create, Read, Update, Delete
  - Add a rating
-* [User Profiles](### User Profiles)
+* [User Profiles](#user-profiles)
  - Change profile avatar
  - Change username and password
  - Browse own comments
-* [Search](### Search)
+* [Search](#search)
  - Realtime search videos on index page
 
 ### Videos
@@ -177,7 +179,7 @@ render() {
 
 Search feature allows users to search videos in realtime.
 
-<img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478898808/search_zu1zia.gif' width='100%'/>
+<img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478901821/search_ezmq5l.gif' width='100%'/>
 
 
 ## Potential Extentions
