@@ -55,11 +55,12 @@ class UserPage extends React.Component {
 
   toggleEditMode(field){
     return e => {
-      if(this.state.user.id > 2){
+      let username = this.state.user.username;
+      if(username !== 'guest' && username !== 'admin'){
         this.state[`${field}EditMode`] = !this.state[`${field}EditMode`];
         this.setState(this.state);
       } else {
-        this.setState({message: `Editing this field is not permitted on user: ${this.state.user.username}! Please create a private account for editing information!`});
+        this.setState({message: `Editing this field is not permitted on user: ${username}! Please create a private account for editing information!`});
         window.setTimeout(() => {
           this.setState({ message: null});}, 3000);
       }
@@ -125,8 +126,10 @@ class UserPage extends React.Component {
 
   renderErrors(){
     let error = <li>{this.state.message}</li>;
-
-    if(this.props.errors){
+    if(this.state.message){
+      return error;
+    }
+    if(this.props.errors && this.props.errors !== []){
       return (
         <div className='profileSlice'>
           <ul>
@@ -134,9 +137,6 @@ class UserPage extends React.Component {
           </ul>
         </div>
       );
-    }
-    if(this.state.message){
-      return error;
     }
   }
 
