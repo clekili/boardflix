@@ -1,6 +1,6 @@
 [boardflix]: http://www.boardflix.co
 
-# <img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478814745/headerlogo_kiubhy.png'/ height='70px'> Boardflix
+# <img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478904678/headerlogo_mrj9qd.png'/ height='50px'> Boardflix
 
 Boardflix is a full-stack web application provides a collection of videos on various board sports. Inspired by Netflix. Stack used in crafting Boardflix includes Ruby on Rails backend, PostgreSQL db and React/Redux frontend.
 
