@@ -60,6 +60,7 @@
   flex-flow: row;
   justify-content: center;
   position:relative;
+  margin-top: 16px;
 }
 
 .searchIcon{

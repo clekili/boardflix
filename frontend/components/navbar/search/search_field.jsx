@@ -20,27 +20,27 @@ class SearchField extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(text){
-    this.setState({searchString: text});
-    this.props.find(text);
+  handleChange(e){
+    e.preventDefault();
+    let searchString = e.target.value;
+    this.setState({searchString});
+    this.props.find(searchString);
   }
 
   render() {
     if(this.props.loggedIn){
     return ( <div className='searchField'>
-                <AutoComplete
-                  hintText="Search..."
-                  filter={AutoComplete.caseInsensitiveFilter}
-                  dataSource={this.props.videoNames}
-                  onUpdateInput={this.handleChange}
-                  underlineFocusStyle={styles.underlineStyle}
-                  maxSearchResults={4}
+              <TextField
+                hintText='Search...'
+                underlineFocusStyle={styles.underlineStyle}
+                onChange={this.handleChange}
+                value={this.state.searchString}
                 />
-                <img
-                  className="searchIcon"
-                  src="https://res.cloudinary.com/ddqzltwv6/image/upload/v1478468745/search_g7zx4p.png"
-                />
-              </div>);
+              <img
+                className="searchIcon"
+                src="https://res.cloudinary.com/ddqzltwv6/image/upload/v1478468745/search_g7zx4p.png"
+              />
+            </div>);
     }
     return null;
   }
