@@ -4,7 +4,7 @@ import { fetchComments } from '../../actions/comment_actions';
 import UserPage from './user_page';
 
 const mapStateToProps = (state, ownProps) => ({
-  user: state.session.currentUser,
+  user: state.session.currentUser || {},
   errors: state.session.errors,
   comments: getComments(state)
 });
@@ -15,6 +15,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const getComments = state => {
+  if(!state.session.currentUser)
+    return [];
+
   let userId = state.session.currentUser.id;
   let comments = [];
   Object.keys(state.comments).forEach( commentId => {
