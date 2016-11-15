@@ -99,14 +99,14 @@ class SessionForm extends React.Component {
       linkDesc = "Already have an account?";
       changeFormText = 'Log In';
       demoLoginButton = (
-        <FlatButton label='Guest Login'
+        <FlatButton label='Demo Guest Login'
                     primary={true}
                     onClick={this.handleGuestLogin}
                     style={buttonStyle}
                     />
       );
       adminLoginButton = (
-        <FlatButton label='Admin Login'
+        <FlatButton label='Demo Admin Login'
                     secondary={true}
                     onClick={this.handleAdminLogin}
                     style={buttonStyle}
