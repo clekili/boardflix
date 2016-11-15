@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import SessionButton from '../navbar/session/session_button';
 
 const Intro = () => (
   <div className='intro'>
@@ -7,6 +8,7 @@ const Intro = () => (
     <div className='splashTitle'>
       <h1>Time to <span>ride</span></h1>
       <h2>{"Watch snow, skate, surf boarding videos. Get Ready for the season"}</h2>
+      <SessionButton onlySignup={true}/>
     </div>
   </div>
 );
