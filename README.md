@@ -182,7 +182,7 @@ Search feature allows users to search videos in realtime.
 <img src='https://res.cloudinary.com/ddqzltwv6/image/upload/v1478901821/search_ezmq5l.gif' width='100%'/>
 
 
-## Potential Extentions
+## Potential Extensions
 
 Boardflix was designed in under 2 weeks, hence there are many ways it can be expanded.
 
